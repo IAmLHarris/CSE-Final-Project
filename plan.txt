@@ -1,2 +1,40 @@
 We're still not quite sure what we're deciding to make yet. This is where we'll 
 brainstorm once we do!
+
+
+
+
+Ideas for a platformer game:
+
+We were thinking of setting it up with 3ish levels.
+
+When you run into the side of the screen it would reset your character to the other side, and change the level. 
+    Or there could be a certain objective that when you touch it it takes you to the next level.
+        To signify it's importance to the player, we could have it change colors each game tick? -L
+    
+We could have a text file to house all of the objects for each level, or one text file for all of the levels. 
+    I'm leaning towards an individual text file for each level. -Jared
+    
+    The objects for each level could have values of their name, 
+    their intended position on the screen (in terms of grid cells. We'd probably multiply the value by cell size to get the pixel location), 
+    and if we want to use one text file for all of the levels we'd likely want to put a level number by them. 
+        If we were using one text file for all of the levels I think we should separate the individual objects by level first, and then also by smaller categories/purpose/location.
+
+The game will run with RFK as it's base. 
+    :thumbsup: -Jared
+
+Gravity will have to be a consideration. I'm thinking an Action?
+    Something akin to Jared's HandleGrowthAction, but instead of growing the player, it would just apply velocity. -L
+        I think the check for this would be something like "if (player's horizontal and vertical location) +- (CELL_SIZE / 2) = (is inhabited by a block)" or something like that.
+        Idk, I'm too tired to think. -Jared
+
+Jumps would be immediately setting the vertical momentum to a certain value?
+Gravity would act on jumps by slowly setting the vertical momentum to a lower value by tick, until it reached a maximum negative velocity or ran into an object?
+
+Maybe the player could move by individual pixel, while the rest of the world is stuck in their individual cells?
+
+Our entity collision will work like this:
+    Each of our blocks will have a ring of invisible pixel barriers in/around the border of it.
+    Our player will have 8 collision checks. 2 on each corner for each of the directions it can move. If a collision check on the bottom side of our player's 
+
+
