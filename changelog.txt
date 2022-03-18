@@ -1,0 +1,2 @@
+This is where we'll have our change log. Remember to record what you do so you
+can write it here!
