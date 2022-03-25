@@ -17,8 +17,8 @@ from game.shared.point import Point
 FRAME_RATE = 12
 MAX_X = 600
 MAX_Y = 600
-CELL_SIZE = 15
-FONT_SIZE = 10
+CELL_SIZE = 20
+FONT_SIZE = 20
 COLS = 60
 ROWS = 40
 CAPTION = "Robot Finds Kitten"
@@ -46,7 +46,7 @@ def main():
     position = Point(x, y)
 
     robot = Actor()
-    robot.set_text("X#\nXX")
+    robot.set_text("X")
     robot.set_font_size(FONT_SIZE)
     robot.set_color(WHITE)
     robot.set_position(position)

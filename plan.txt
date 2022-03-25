@@ -12,7 +12,7 @@ When you run into the side of the screen it would reset your character to the ot
     Or there could be a certain objective that when you touch it it takes you to the next level.
         To signify it's importance to the player, we could have it change colors each game tick? -L
     
-We could have a text file to house all of the objects for each level, or one text file for all of the levels. 
+We could have a text file to house all of the objects for each level, or one text file for all of the levels. -Jared, you go ahead and start to work on this. Being able to have a place to test out the movement will be important. -L
     I'm leaning towards an individual text file for each level. -Jared
     
     The objects for each level could have values of their name, 
@@ -20,10 +20,11 @@ We could have a text file to house all of the objects for each level, or one tex
     and if we want to use one text file for all of the levels we'd likely want to put a level number by them. 
         If we were using one text file for all of the levels I think we should separate the individual objects by level first, and then also by smaller categories/purpose/location.
 
-The game will run with RFK as it's base. 
+The game will run with RFK as it's base.  -=-DONE-=-
     :thumbsup: -Jared
+        I think we should use RFK for what will eventually become our game. We can, and should, use Cycle to understand how we're wanting to go about it, but RFK will hold our actual work. -L
 
-Gravity will have to be a consideration. I'm thinking an Action?
+Gravity will have to be a consideration. I'm thinking an Action? -Liam will work on this today. [24/3/22]
     Something akin to Jared's HandleGrowthAction, but instead of growing the player, it would just apply velocity. -L
         I think the check for this would be something like "if (player's horizontal and vertical location) +- (CELL_SIZE / 2) = (is inhabited by a block)" or something like that.
         Idk, I'm too tired to think. -Jared
