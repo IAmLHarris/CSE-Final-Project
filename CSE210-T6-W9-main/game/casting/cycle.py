@@ -17,7 +17,7 @@ class Cycle(Actor):
         """Constructs a new Cycle actor."""
         super().__init__()
         self._segments = []
-        # self._prepare_body()
+        self._prepare_body()
         self._cycle_color = constants.YELLOW
 
     def get_segments(self):
@@ -40,20 +40,20 @@ class Cycle(Actor):
         """Returns the first segment of the cycle"""
         return self._segments[0]
 
-    def grow_tail(self, number_of_segments):
-        """Grows the tail of the cycle by one"""
-        for _ in range(number_of_segments):
-            tail = self._segments[-1]
-            velocity = tail.get_velocity()
-            offset = velocity.reverse()
-            position = tail.get_position().add(offset)
+    # def grow_tail(self, number_of_segments):
+    #     """Grows the tail of the cycle by one"""
+    #     for _ in range(number_of_segments):
+    #         tail = self._segments[-1]
+    #         velocity = tail.get_velocity()
+    #         offset = velocity.reverse()
+    #         position = tail.get_position().add(offset)
             
-            segment = Actor()
-            segment.set_position(position)
-            segment.set_velocity(velocity)
-            segment.set_text("#")
-            segment.set_color(self._cycle_color)
-            self._segments.append(segment)
+    #         segment = Actor()
+    #         segment.set_position(position)
+    #         segment.set_velocity(velocity)
+    #         segment.set_text("#")
+    #         segment.set_color(self._cycle_color)
+    #         self._segments.append(segment)
 
     def turn_head(self, velocity):
         """Turns the the cycle by changing the velocity of the head."""
