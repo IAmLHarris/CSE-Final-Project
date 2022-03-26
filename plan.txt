@@ -50,3 +50,10 @@ The program should use the libraries chosen in the course.
 The program should be delivered through a version control system. (github, booya suckers)
 The program should be able to be run from the command line.
 
+
+
+
+
+TODO: 
+Start a resources.py file that is similar to cast, but for holding our level file, collisions variables and whatnot.
+Change our robot to a better name globally, and clean up the scripts from the tron game and the rest of the files to make sure they're all playing nice.

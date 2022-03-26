@@ -5,6 +5,12 @@ from game.casting.actor import Actor
 from game.casting.artifact import Artifact
 from game.casting.cast import Cast
 
+from game.shared.resources import Item_Cast
+from game.shared.items import Item
+
+from game.scripting.script import Script
+from game.scripting.populate_block_cast_action import PopulateBlockCastAction
+
 from game.directing.director import Director
 
 from game.services.keyboard_service import KeyboardService
@@ -14,15 +20,16 @@ from game.shared.color import Color
 from game.shared.point import Point
 
 
-FRAME_RATE = 12
-MAX_X = 600
-MAX_Y = 600
-CELL_SIZE = 20
-FONT_SIZE = 20
-COLS = 60
-ROWS = 40
+FRAME_RATE = 60
+MAX_X = 1200
+MAX_Y = 1200
+CELL_SIZE = 30
+FONT_SIZE = 30
+COLS = 120
+ROWS = 80
 CAPTION = "Robot Finds Kitten"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
+LEVEL1 = os.path.dirname(os.path.abspath(__file__)) + "/data/level1.txt"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = 120
 
@@ -52,6 +59,10 @@ def main():
     robot.set_position(position)
     cast.add_actor("robots", robot)
     
+    # get the level
+    level1 = Item()
+    level1 = LEVEL1
+    
     # create the artifacts
     with open(DATA_PATH) as file:
         data = file.read()
@@ -80,8 +91,15 @@ def main():
         cast.add_actor("artifacts", artifact)
     
     # start the game
-    keyboard_service = KeyboardService(CELL_SIZE)
+    keyboard_service = KeyboardService()
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
+
+    # creating the ground
+    script = Script()
+    script.add_action("update", PopulateBlockCastAction)
+    print("I'm gonna scream")
+
+
     director = Director(keyboard_service, video_service)
     director.start_game(cast)
 
