@@ -1,2 +1,6 @@
 This is where we'll have our change log. Remember to record what you do so you
 can write it here!
+0.001: Created the repo, worked on a number of things, including our plan, populate_block_cast_action and our level builder.
+0.002: Worked on getting populate_block_cast_action and our level builder working, and wrote 0.001 in the changelog. - Jared
+        Created the platformer folder for use in creating a combined version of the rfk and cycle projects. 
+            I'm hoping to turn this into a version of rfk that uses scripting so that we can use it in the future for the rest of our project.
