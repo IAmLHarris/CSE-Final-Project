@@ -1,3 +1,4 @@
+from importlib import resources
 import os
 import random
 
@@ -5,11 +6,11 @@ from game.casting.actor import Actor
 from game.casting.artifact import Artifact
 from game.casting.cast import Cast
 
-from game.shared.resources import Item_Cast
+from game.shared.resources import Resources
 from game.shared.items import Item
 
 from game.scripting.script import Script
-from game.scripting.populate_block_cast_action import PopulateBlockCastAction
+# from game.scripting.populate_block_cast_action import PopulateBlockCastAction
 
 from game.directing.director import Director
 
@@ -27,7 +28,7 @@ CELL_SIZE = 25
 FONT_SIZE = 25
 COLS = 40
 ROWS = 40
-CAPTION = "Robot Finds Kitten"
+CAPTION = "CSE Platformer"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 LEVEL1 = os.path.dirname(os.path.abspath(__file__)) + "/data/level1.txt"
 WHITE = Color(255, 255, 255)
@@ -47,21 +48,25 @@ def main():
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
     
-    # create the robot
+    # create the player character
     x = int(MAX_X / 2)
     y = int(MAX_Y / 2)
     position = Point(x, y)
 
-    robot = Actor()
-    robot.set_text("X")
-    robot.set_font_size(FONT_SIZE)
-    robot.set_color(WHITE)
-    robot.set_position(position)
-    cast.add_actor("robots", robot)
+    pc = Actor()
+    pc.set_text("X")
+    pc.set_font_size(FONT_SIZE)
+    pc.set_color(WHITE)
+    pc.set_position(position)
+    cast.add_actor("player character", pc)
     
-    # get the level
-    level1 = Item()
-    level1 = LEVEL1
+    # # create the resources container
+    # resources = Resources
+
+    # # get the level
+    # level1 = Item()
+    # level1 = LEVEL1
+    # resources.add_item("level", level1) 
     
     # create the artifacts
     with open(DATA_PATH) as file:
@@ -94,10 +99,10 @@ def main():
     keyboard_service = KeyboardService()
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
 
-    # creating the ground
-    script = Script()
-    script.add_action("update", PopulateBlockCastAction)
-    print("I'm gonna scream")
+    # # creating the ground
+    # script = Script()
+    # script.add_action("update", PopulateBlockCastAction)
+    # print("I'm gonna scream")
 
 
     director = Director(keyboard_service, video_service)

@@ -1,9 +1,3 @@
-We're still not quite sure what we're deciding to make yet. This is where we'll 
-brainstorm once we do!
-
-
-
-
 Ideas for our platformer game:
 
 We were thinking of setting it up with 3ish levels.
@@ -55,5 +49,25 @@ The program should be able to be run from the command line.
 
 
 TODO: 
-Start a resources.py file that is similar to cast, but for holding our level file, collisions variables and whatnot.
-Change our robot to a better name globally, and clean up the scripts from the tron game and the rest of the files to make sure they're all playing nice.
+Start a resources.py file that is similar to cast, but for holding our level file, collisions variables and whatnot. (Mostly done v0.001)
+
+Change our robot to a better name globally, and clean up the scripts from the tron game and the rest of the files to make sure they're all playing nice. 
+    (This is the big thing, and I think we need to get this done before we can make any real progress on anything else. -Jared)
+
+    This includes:
+    Changing the director.py file to use the tron model.
+        This involves taking the few functions we have in the director, 
+        turning them into individual action files devoted to a specific purpose, 
+        and replacing the director with a version like that of tron that says:
+            actions = script.get_actions(group)    
+            for action in actions:
+                action.execute(cast, script, resources)
+
+    We need to change everywhere that we use "(cast, script)" to be "(cast, script, resources)".
+
+    I HIGHLY recommend that we change everywhere it says cycles, rfk, robot, etc. to something more appropriate for our platformer. 
+    My recommended terms are thus: 
+        The main character, formerly the robot should be in the cast category "player character" and should be referred to as "pc" or player_character.
+        The blocks that we use to make up the floor and walls, should be in the cast category "blocks" and in the map files should be referred to as "block"(s).
+
+Note from Jared - If you guys have other ideas of other ways you want to do this, you can feel free to do them that way. I'm sick, and I won't be able to help a ton here.

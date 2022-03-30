@@ -4,3 +4,9 @@ can write it here!
 0.002: Worked on getting populate_block_cast_action and our level builder working, and wrote 0.001 in the changelog. - Jared
         Created the platformer folder for use in creating a combined version of the rfk and cycle projects. 
             I'm hoping to turn this into a version of rfk that uses scripting so that we can use it in the future for the rest of our project.
+0.003: I continued working on turning this into a version of rfk that uses scripting.
+        I wasn't very successful in this. 
+        I temporarily moved the scripting files out of the main folder to essentially rewrite them with the basics of rfk, the functions from director.py.
+        I started working on set_pc_velocity_action in scripting, who's rfk counterpart is the _get_inputs function in director.py, with the cycles counterpart of control_actors_action.py in scripting.
+        I think I did some other stuff, but I can't remember what I did. 
+        Currently the program is running.

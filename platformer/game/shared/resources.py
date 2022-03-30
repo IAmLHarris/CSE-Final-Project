@@ -1,4 +1,4 @@
-class Item_Cast:
+class Resources:
     """A collection of items.
 
     
