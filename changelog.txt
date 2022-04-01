@@ -10,3 +10,4 @@ can write it here!
         I started working on set_pc_velocity_action in scripting, who's rfk counterpart is the _get_inputs function in director.py, with the cycles counterpart of control_actors_action.py in scripting.
         I think I did some other stuff, but I can't remember what I did. 
         Currently the program is running.
+0.004: Changing to a new model, created references folder
