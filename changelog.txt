@@ -29,3 +29,6 @@ can write it here!
 0.008: L continues to suffer, but successfully made populate_block_cast_action function as working! 
         As coded as of writing, populate_block_cast_action works. It doesn't really do anything ingame, but it does pull from the level file and print as it works.
                 To note- If you make a level, you need to add it's file extension name to the constants file. Feel free to change it if you want to, but trust me when I say, this was the simplest way of doing it. 
+
+0.009: Watch in real time as you can move the player sprite around pixel by pixel! 
+        The functionality is that of our old RFK file, and oh my goodness, I'm so happy I might cry. Never before have I been so happy to move around a black void as a single Q. Moving the character model is no longer involuntary, holding down the key lets you move. 

@@ -53,7 +53,7 @@ def main():
     position = Point(x, y)
 
     robot = Actor()
-    robot.set_text("X")
+    robot.set_text("M")
     robot.set_font_size(FONT_SIZE)
     robot.set_color(WHITE)
     robot.set_position(position)

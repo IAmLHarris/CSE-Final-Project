@@ -2,7 +2,7 @@ from game.shared import constants as constants
 # from game.shared.constants import constants as Constants
 
 from game.casting.cast import Cast
-from game.casting.food import Food
+from game.casting.block import Block
 from game.casting.score import Score
 from game.casting.player import Player
 
@@ -27,22 +27,22 @@ def main():
     cast = Cast()
     
     player = Player()
-    ### cycle_two = Cycle()
+    
     
     score_one = Score("One")
-    ### score_two = Score("Two")
+    
     
     player.prepare_body()
-    ### cycle_two.prepare_body(constants.BLUE)
+    
 
     cast.add_actor("player", player)
-    ### cast.add_actor("cycles", cycle_two)
+    
     
     score_one.prepare_score("One")
-    ### score_two.prepare_score("Two")
+    
     
     cast.add_actor("scores", score_one)
-    ### cast.add_actor("scores", score_two)
+    
     
     # start the game
     keyboard_service = KeyboardService()
@@ -52,8 +52,8 @@ def main():
     script.add_action("input", ControlActorsAction(keyboard_service))
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
-    script.add_action("output", PopulateBlockCastAction())
-    ### script.add_action("update", HandleGrowthAction())
+    # script.add_action("output", PopulateBlockCastAction())
+    
     script.add_action("output", DrawActorsAction(video_service))
 
     

@@ -31,26 +31,34 @@ class ControlActorsAction(Action):
             script (Script): The script of Actions in the game.
         """
 
-        players = cast.get_actors("player")
+        player = cast.get_first_actor("player")
         
+        dx = 0
+        dy = 0
+
         # left
         if self._keyboard_service.is_key_down('a'):
-            self._player_direction = Point(-1, 0)
+            dx += -1
+            
         
         # right
         if self._keyboard_service.is_key_down('d'):
-            self._player_direction = Point(1, 0)
+            dx += 1
+            
         
         # up
         if self._keyboard_service.is_key_down('w'):
-            self._player_direction = Point(0, -1)
+            dy += -1
+            
         
         # down
         if self._keyboard_service.is_key_down('s'):
-            self._player_direction = Point(0, 1)
+            dy += 1
+            
         
-        player = players[0]
-        player.turn_head
+        direction = Point(dx, dy)
+
+        player.turn_head(direction)
 
         # # left
         # if self._keyboard_service.is_key_down('j'):

@@ -31,7 +31,7 @@ class Player(Actor):
 
     def turn_head(self, position):
         """Turns the the cycle by changing the position of the head."""
-        self.set_position(position)
+        self.set_velocity(position)
 
     # def get_segments(self):
     #     """Returns a list of the segments in the cycle."""
