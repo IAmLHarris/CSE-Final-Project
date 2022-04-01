@@ -10,7 +10,7 @@ from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
 from game.scripting.handle_collisions_action import HandleCollisionsAction
-# from game.scripting.handle_growth_action import HandleGrowthAction
+from game.scripting.populate_block_cast_action import PopulateBlockCastAction
 from game.scripting.draw_actors_action import DrawActorsAction
 
 from game.directing.director import Director
@@ -26,16 +26,16 @@ def main():
     # create the cast
     cast = Cast()
     
-    cycle_one = Player()
+    player = Player()
     ### cycle_two = Cycle()
     
     score_one = Score("One")
     ### score_two = Score("Two")
     
-    cycle_one.prepare_body()
+    player.prepare_body()
     ### cycle_two.prepare_body(constants.BLUE)
 
-    cast.add_actor("cycles", cycle_one)
+    cast.add_actor("player", player)
     ### cast.add_actor("cycles", cycle_two)
     
     score_one.prepare_score("One")
@@ -52,8 +52,10 @@ def main():
     script.add_action("input", ControlActorsAction(keyboard_service))
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
+    script.add_action("output", PopulateBlockCastAction())
     ### script.add_action("update", HandleGrowthAction())
     script.add_action("output", DrawActorsAction(video_service))
+
     
     director = Director(video_service)
     director.start_game(cast, script)

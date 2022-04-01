@@ -42,10 +42,9 @@ The program should be able to be run from the command line.
 
 
 
-
 TODO: 
 
-Change the game to be one player. (Assigned to: Kaelyn)
+Change the game to be one player. (Mostly? done by Kaelyn v0.006-v0.007)
     This includes:
     Removing the controls for the second player. 
     Removing the second player's character model in __main__.py
@@ -61,22 +60,26 @@ Change our movement system to only move when wasd are pressed. (Assigned to: Lia
         My recommendation would be looking at the movement of RFK, then of cycles to understand the difference between the two. In theory, that should make the answer clear.
 
 
-Take our resources.py file from "platformer" in resources. It is similar to cast, but for holding our level file, collisions variables and whatnot. (Done by Liam v0.006)
+Take our resources.py file from "platformer" in resources. It is similar to cast, but for holding our level file, collisions variables and whatnot. (This line was done by Liam v0.006)
     Once we have our resources.py file set up we'll need to change EVERYWHERE in the program that we use "(cast, script)" to be "(cast, script, resources)". 
     We'll also need to instantiate it like we do with our cast in __main__.py.
         Once we've done these things we'll be able to use resources to pass collision variables for stopping our player when he runs into a wall or stands on a floor, 
          the level file itself or the directory for it,
          and anything else that we may need to pass between actions that isn't an actor to go in the cast.
 
+Handle collision between the player and blocks.
+    When the player is above (standing on) a block the player should stop moving down, and be able to move freely left to right, and jump. 
+    When the player is to the left or right of a block the player should not be able to move into it, but still be able to...
+    write ceiling thing here
+
 Incorporate gravity.
     (The below is an opinion, and you can do it how you like.)
     Gravity should be an action in scripting where when the player is not colliding with something below them the player's vertical velocity 
-     is lowered by a certain amount each tick.
+     is lowered by a certain amount each tick. I would recommend 1 or 2. We'll probably need to play around with this and the value of jumping quite a bit.
+        This could also be done not by adding -1 to the velocity, but by multiplying the downwards velocity by a value such as 0.1 or 0.2.
 
-
-
-
-
-For Cristian:
-Is there anything I missed? Please think about it for a while and consider anything more that we'll need. 
-If you can get the idea across to me, I'll happily write it out for another team member or assign it to you.
+Incorporate jumping. 
+    (Again, an opinion, you can do it how you like.)
+    Jumping should be defined in the same area as the rest of our velocity changes with WASD are,
+     but when the spacebar is pressed the character's vertical velocity should immediately be set to a certain value. 
+     I would recommend 5-25 with the assumption gravity lowers vertical speed by 1 every tick.

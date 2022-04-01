@@ -1,7 +1,5 @@
 class Resources:
-    """A collection of items.
-
-    
+    """A collection of values and variables used in our games, primarily to share information between actions.    
 
     Attributes:
         _items (dict): A dictionary of items { key: group_name, value: a list of items }

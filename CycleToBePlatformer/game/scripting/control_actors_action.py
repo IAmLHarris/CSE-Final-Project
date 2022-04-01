@@ -20,7 +20,7 @@ class ControlActorsAction(Action):
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         self._keyboard_service = keyboard_service
-        self._red_direction = Point(0, -constants.CELL_SIZE)
+        self._player_direction = Point(0, -constants.CELL_SIZE)
         # self._blue_direction = Point(0, -constants.CELL_SIZE)
 
     def execute(self, cast, script):
@@ -31,26 +31,26 @@ class ControlActorsAction(Action):
             script (Script): The script of Actions in the game.
         """
 
-        cycles = cast.get_actors("cycles")
+        players = cast.get_actors("player")
         
         # left
         if self._keyboard_service.is_key_down('a'):
-            self._red_direction = Point(-constants.CELL_SIZE, 0)
+            self._player_direction = Point(-1, 0)
         
         # right
         if self._keyboard_service.is_key_down('d'):
-            self._red_direction = Point(constants.CELL_SIZE, 0)
+            self._player_direction = Point(1, 0)
         
         # up
         if self._keyboard_service.is_key_down('w'):
-            self._red_direction = Point(0, -constants.CELL_SIZE)
+            self._player_direction = Point(0, -1)
         
         # down
         if self._keyboard_service.is_key_down('s'):
-            self._red_direction = Point(0, constants.CELL_SIZE)
+            self._player_direction = Point(0, 1)
         
-        red_cycle = cycles[0]
-        
+        player = players[0]
+        player.turn_head
 
         # # left
         # if self._keyboard_service.is_key_down('j'):

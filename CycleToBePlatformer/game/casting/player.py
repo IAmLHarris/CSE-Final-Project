@@ -15,7 +15,7 @@ class Player(Actor):
     def __init__(self):
         """Constructs a new Cycle actor."""
         super().__init__()
-        self.set_text("X")
+        self.set_text("Q")
         self.set_font_size(FONT_SIZE)
         self.set_color(WHITE)
         
@@ -27,6 +27,10 @@ class Player(Actor):
         x = int(constants.MAX_X / 2)
         y = int(constants.MAX_Y / 2)
         position = Point(x, y)
+        self.set_position(position)
+
+    def turn_head(self, position):
+        """Turns the the cycle by changing the position of the head."""
         self.set_position(position)
 
     # def get_segments(self):
