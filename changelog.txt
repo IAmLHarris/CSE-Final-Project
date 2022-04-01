@@ -12,3 +12,7 @@ can write it here!
         Currently the program is running.
 0.004: Changing to a new model, created references folder
 0.005: Moved platformer and our previous Cycles program into references.
+0.006: Imported a fresh copy of our Cycles game to use as a base for our new program.
+        Liam added the resources.py file to the shared folder.
+        Liam removed some code from the second player.
+        Kaelyn removed code from the scripting and services folders' files regarding the second player
