@@ -47,16 +47,17 @@ class HandleCollisionsAction(Action):
         blocks = cast.get_actors("blocks")
 
         wonder = player.get_position()
-        forgot = wonder.add(Point(0, -1))
+        forgot = wonder.add(Point(0, 0))
         # print(forgot.get_x())
         
 
         # print(blocks.get_position().get_x())
 
         for block in blocks:
-            # fly = block.get_position
+            
             block.get_position().get_x()
             if block.get_position().equals(wonder):
+                # This is for the south collision of the player. Use the add thing in line 50 to change the offset.
                 player.set_colliding_boolean(True)
 
         # player.get_position()
