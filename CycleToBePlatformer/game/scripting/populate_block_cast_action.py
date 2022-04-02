@@ -87,7 +87,7 @@ class PopulateBlockCastAction(Action):
                     # print(block)
                     pass
     def get_populated_block_cast(self):
-        print(self.blocks)
+        # print(self.blocks)
         return self.blocks
 
             

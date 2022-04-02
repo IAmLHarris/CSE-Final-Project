@@ -1,5 +1,5 @@
 # from constants import Constants
-from turtle import pos, position
+# from turtle import pos, position
 from game.shared.constants import FONT_SIZE, WHITE
 from game.shared import constants as constants
 from game.casting.actor import Actor
@@ -21,6 +21,7 @@ class Player(Actor):
         self.set_color(WHITE)
         self.grav_counter = 0
         self.prepare_body()
+        self.south_colliding_boolean = False
         
 
 
@@ -34,9 +35,13 @@ class Player(Actor):
         """Turns the the cycle by changing the position of the head."""
         self.set_velocity(position)
 
-    # def get_segments(self):
-    #     """Returns a list of the segments in the cycle."""
-    #     return self._segments
+    def get_colliding_boolean(self):
+        """Returns a boolean variable if whether or not the player is colliding"""
+        return self.south_colliding_boolean
+
+    def set_colliding_boolean(self, bool):
+        """Returns a boolean variable if whether or not the player is colliding"""
+        self.south_colliding_boolean = bool
 
     # def move_next(self):
     #     """Moves every segment in the cycle"""
@@ -59,26 +64,18 @@ class Player(Actor):
         player_position = self.get_position()
         gravity_doing_its_thing = Point(0, self.grav_counter)
         position = player_position.add(gravity_doing_its_thing)
-        print(f"PX: {player_position.get_x()}")
-        print(f"PY: {player_position.get_y()}\n")
-        print(f"GY{gravity_doing_its_thing.get_y}")
-        print(f"GC{self.grav_counter}\n")
-        print(f"NX: {position.get_x()}")
-        print(f"NY: {position.get_y()}\n")
+        # print(f"PX: {player_position.get_x()}")
+        # print(f"PY: {player_position.get_y()}\n")
+        # print(f"GY{gravity_doing_its_thing.get_y}")
+        # print(f"GC{self.grav_counter}\n")
+        # print(f"NX: {position.get_x()}")
+        # print(f"NY: {position.get_y()}\n")
         # print(position)
         # print(player_position)
+
         self.grav_counter += 1
         self.set_position(position)
-        # velocity = tail.get_velocity()
-        # offset = velocity.reverse()
-        # position = tail.get_position().add(offset)
         
-        # segment = Actor()
-        # segment.set_position(position)
-        # segment.set_velocity(velocity)
-        # segment.set_text("#")
-        # segment.set_color(self._cycle_color)
-        # self._segments.append(segment)
 
     # def turn_head(self, velocity):
     #     """Turns the the cycle by changing the velocity of the head."""
@@ -115,8 +112,4 @@ class Player(Actor):
         
 
 
-    # def change_color(self, color):
-    #     self._cycle_color = color
-
-    #     for i in self._segments:
-    #         i.set_color(self._cycle_color)
+    

@@ -26,13 +26,13 @@ class HandleGravity(Action):
         self.game_timer += 1
         
         self.dy += 1
-        game_over = cast.get_first_actor("messages")
-
+        player = cast.get_first_actor("player")
+        colliding = player.get_colliding_boolean()
         
         # The growth of the cycles is determined by this value. 1 = every frame, 2 = every other frame, 15 = every second, 30 = every other second, etc.
         #                    V
-        if self.game_timer % 5 == 0 and game_over == None:
-            player = cast.get_first_actor("player")
+        if self.game_timer % 1 == 0 and colliding == False:
+            
 
             
             

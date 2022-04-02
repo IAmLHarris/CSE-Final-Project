@@ -3,6 +3,7 @@ from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
 
+
 class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
@@ -14,8 +15,13 @@ class HandleCollisionsAction(Action):
         _is_game_over (boolean): Whether or not the game is over.
     """
 
-    def __init__(self):
+    def __init__(self, cast):
         """Constructs a new HandleCollisionsAction."""
+        
+        print(f"collision {cast}")
+        
+        
+        
         self._is_game_over = False
         self._red_wins = "who cares"
 
@@ -28,18 +34,34 @@ class HandleCollisionsAction(Action):
         """
         if not self._is_game_over:
             
-            self._handle_segment_collision(cast)
+            self._handle_collision(cast)
             self._handle_game_over(cast)
     
-    def _handle_segment_collision(self, cast):
+    def _handle_collision(self, cast):
         """Sets the game over flag if a cycle collides with one of it or it's opponent's segments.
         
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        
-        # cycles = cast.get_actors("cycles")
+        player = cast.get_first_actor("player")
+        blocks = cast.get_actors("blocks")
 
+        wonder = player.get_position()
+        forgot = wonder.add(Point(0, -1))
+        # print(forgot.get_x())
+        
+
+        # print(blocks.get_position().get_x())
+
+        for block in blocks:
+            # fly = block.get_position
+            block.get_position().get_x()
+            if block.get_position().equals(wonder):
+                player.set_colliding_boolean(True)
+
+        # player.get_position()
+        # print(f"PX: {player.get_x()}")
+        # print(f"PY: {player.get_y()}\n")
         # cycle1 = cycles[0]
         # # cycle2 = cycles[1]
 
