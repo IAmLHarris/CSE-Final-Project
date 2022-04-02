@@ -1,3 +1,4 @@
+
 from game.shared import constants as constants
 # from game.shared.constants import constants as Constants
 
@@ -25,36 +26,53 @@ def main():
     
     # create the cast
     cast = Cast()
-    
+    script = Script()
     player = Player()
+    
     
     
     score_one = Score("One")
     
-    
+    # block.set_position(Point(100, 100))
     player.prepare_body()
     
+    populated_blocks = PopulateBlockCastAction(constants.LEVEL1)
+    populated_blocks.get_populated_block_cast()
+    for split_block in populated_blocks.get_populated_block_cast():
+        x = split_block[1]
+        y = split_block[2]
+        new_block = Block(int(x), int(y))
+        cast.add_actor("blocks", new_block)
+
+
+    print(cast.get_actors("blocks"))
+    # i_hate_this = populated_blocks.get_populated_block_cast
+    # print(i_hate_this)
+    
+
+
 
     cast.add_actor("player", player)
+    # cast.add_actor("blocks", block)
+    
+    # score_one.prepare_score("One")
     
     
-    score_one.prepare_score("One")
-    
-    
-    cast.add_actor("scores", score_one)
+    # cast.add_actor("scores", score_one)
     
     
     # start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()
 
-    script = Script()
+    
     script.add_action("input", ControlActorsAction(keyboard_service))
 
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
 
-    script.add_action("output", PopulateBlockCastAction())
+    # script.add_action("update", PopulateBlockCastAction())
+    
     
     script.add_action("output", DrawActorsAction(video_service))
 
@@ -64,6 +82,7 @@ def main():
     
     director = Director(video_service)
     director.start_game(cast, script)
+    
 
 
 if __name__ == "__main__":

@@ -20,7 +20,7 @@ class Player(Actor):
         self.set_color(WHITE)
         
         self.prepare_body()
-        self._cycle_color = constants.YELLOW
+        
 
 
     def prepare_body(self):

@@ -30,7 +30,8 @@ class DrawActorsAction(Action):
         players = cast.get_actors("player")
         blocks = cast.get_actors("blocks")
 
-        score_one = scores[0]
+        
+        # score_one = scores[0]
         # score_two = scores[1]
         
         player = players[0]
@@ -45,7 +46,7 @@ class DrawActorsAction(Action):
         self._video_service.draw_actors(blocks)
         self._video_service.draw_actors(players)
         # self._video_service.draw_actors(blue_segments)
-        self._video_service.draw_actor(score_one)
+        # self._video_service.draw_actor(score_one)
         # self._video_service.draw_actor(score_two)
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()
