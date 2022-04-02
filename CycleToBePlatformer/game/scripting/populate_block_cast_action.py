@@ -1,5 +1,7 @@
 from game.shared.constants import LEVEL1
 from game.scripting.action import Action
+from game.casting.block import Block
+from game.shared.point import Point
 import os
 
 class PopulateBlockCastAction(Action):
@@ -13,9 +15,9 @@ class PopulateBlockCastAction(Action):
     
     def __init__(self):
         """Constructs a new PopulateBlockCastAction."""
-        self.level = 0
+        pass
 
-    def execute(self, cast, resources):
+    def execute(self, cast, script = 0):
         """Executes populate block cast action.
 
         Args:
@@ -33,27 +35,42 @@ class PopulateBlockCastAction(Action):
 
             blocks = []
             
+            
             for block in level_lines:
                 list_count=0
+                
+
+                
                 print("Adding block to list in PopulateBlockCastAction")
-                if "#" in block and "block," not in block:
+                if "#" in block and "block " not in block:
                     print(f"Casting out invalid block: \n{block}")
 
-                elif "#" not in block and "block," in block:
+                elif "#" not in block and "block " in block:
                     print(f"Accepting valid block: \n{block}")
-                    blocks.append(block)
+                    # new_block = Block
+                    # cast.
+
+                    stripped_block=block.strip(".")
+                    split_block=stripped_block.split()
+                    print(split_block)
+                    # m=listl.append(listli)
+
+                    blocks.append(split_block)
+
+                    x = split_block(1)
+                    y = split_block(2)
+
+                    new_block = Block
+                    new_block.set_position(Point(x, y))
+                    cast.
+                    # This line above should basically be cast.add_item("blocks", new_block)
+                    # Need to check and see if that's the right way to phrase it.
 
                 else:
                     print("There was a logic error in determining whether the block was valid or not.")
 
 
-                
+            
 
-        # This section should take each line from the level (the level I think should be a string variable with the file path) 
-        # and load it up if it's a block, or something like that.
-
-if __name__ == "__main__":
-    PopulateBlockCastAction = PopulateBlockCastAction
-    PopulateBlockCastAction.execute(0, 0, 0)
 
 

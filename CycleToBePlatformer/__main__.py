@@ -50,11 +50,16 @@ def main():
 
     script = Script()
     script.add_action("input", ControlActorsAction(keyboard_service))
+
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
+
     # script.add_action("output", PopulateBlockCastAction())
     
     script.add_action("output", DrawActorsAction(video_service))
+
+    #Testing line:
+    # PopulateBlockCastAction.execute(cast, script)
 
     
     director = Director(video_service)
