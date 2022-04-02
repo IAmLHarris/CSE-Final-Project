@@ -1,7 +1,8 @@
+from game.shared.point import Point
 from game.scripting.action import Action
 # from game.casting.cycle import cycle
 
-class HandleGrowthAction(Action):
+class HandleGravity(Action):
     """
     An update action that handles growth of the cycle actors.
     
@@ -13,6 +14,7 @@ class HandleGrowthAction(Action):
     def __init__(self):
         """Constructs a new HandleGrowthAction."""
         self.game_timer = 0
+        self.dy = 0
 
     def execute(self, cast, script):
         """Executes the handle growth action.
@@ -22,18 +24,22 @@ class HandleGrowthAction(Action):
             script (Script): The script of Actions in the game.
         """
         self.game_timer += 1
-
+        
+        self.dy += 1
         game_over = cast.get_first_actor("messages")
 
         
         # The growth of the cycles is determined by this value. 1 = every frame, 2 = every other frame, 15 = every second, 30 = every other second, etc.
         #                    V
         if self.game_timer % 5 == 0 and game_over == None:
-            cycles = cast.get_actors("cycles")
+            player = cast.get_first_actor("player")
 
-            cycle1 = cycles[0]
+            
+            
+
             # cycle2 = cycles[1]
-
-            cycle1.grow_tail(1)
+            # print(self.game_timer)
+            # print(dy)
+            player.gravity()
             # cycle2.grow_tail(1)
 

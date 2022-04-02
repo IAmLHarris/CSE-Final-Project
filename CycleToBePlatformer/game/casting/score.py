@@ -28,7 +28,7 @@ class Score(Actor):
             points (int): The points to add.
         """
         self._points += points
-        self.set_text(f"Player {player}: {self._points}")
+        self.set_text(f"Player Position: {player}: {self._points}")
 
     def prepare_score(self, score):
         """Prepares the body of the score"""

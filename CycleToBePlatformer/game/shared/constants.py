@@ -5,8 +5,8 @@ import os
 COLUMNS = 40
 ROWS = 40
 CELL_SIZE = 25
-MAX_X = 1000
-MAX_Y = 1000
+MAX_X = 500
+MAX_Y = 500
 FRAME_RATE = 60
 FONT_SIZE = 25
 CAPTION = "Team 6's Platformer"

@@ -47,3 +47,5 @@ can write it here!
                 TypeError: an integer is required
 
 0.013: L- WE DID IT. populate_block_cast_action IS V 1.0. IT WORKS. It's not perfect, but it WORKS. 
+
+0.014: L- Gravity funtions. It's fast, I think I screwed up the addition somehow, but boy does it goes down.

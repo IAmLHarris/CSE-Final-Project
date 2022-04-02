@@ -1,4 +1,5 @@
 # from constants import Constants
+from turtle import pos, position
 from game.shared.constants import FONT_SIZE, WHITE
 from game.shared import constants as constants
 from game.casting.actor import Actor
@@ -18,7 +19,7 @@ class Player(Actor):
         self.set_text("Q")
         self.set_font_size(FONT_SIZE)
         self.set_color(WHITE)
-        
+        self.grav_counter = 0
         self.prepare_body()
         
 
@@ -53,20 +54,31 @@ class Player(Actor):
     #     """Returns the first segment of the cycle"""
     #     return self._segments[0]
 
-    # def grow_tail(self, number_of_segments):
-    #     """Grows the tail of the cycle by one"""
-    #     for _ in range(number_of_segments):
-    #         tail = self._segments[-1]
-    #         velocity = tail.get_velocity()
-    #         offset = velocity.reverse()
-    #         position = tail.get_position().add(offset)
-            
-    #         segment = Actor()
-    #         segment.set_position(position)
-    #         segment.set_velocity(velocity)
-    #         segment.set_text("#")
-    #         segment.set_color(self._cycle_color)
-    #         self._segments.append(segment)
+    def gravity(self):
+        """it's gravity, and it doesn't take any arguments, just makes you go down a pixel each time it's activated"""
+        player_position = self.get_position()
+        gravity_doing_its_thing = Point(0, self.grav_counter)
+        position = player_position.add(gravity_doing_its_thing)
+        print(f"PX: {player_position.get_x()}")
+        print(f"PY: {player_position.get_y()}\n")
+        print(f"GY{gravity_doing_its_thing.get_y}")
+        print(f"GC{self.grav_counter}\n")
+        print(f"NX: {position.get_x()}")
+        print(f"NY: {position.get_y()}\n")
+        # print(position)
+        # print(player_position)
+        self.grav_counter += 1
+        self.set_position(position)
+        # velocity = tail.get_velocity()
+        # offset = velocity.reverse()
+        # position = tail.get_position().add(offset)
+        
+        # segment = Actor()
+        # segment.set_position(position)
+        # segment.set_velocity(velocity)
+        # segment.set_text("#")
+        # segment.set_color(self._cycle_color)
+        # self._segments.append(segment)
 
     # def turn_head(self, velocity):
     #     """Turns the the cycle by changing the velocity of the head."""
