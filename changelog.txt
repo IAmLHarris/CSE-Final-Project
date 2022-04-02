@@ -32,3 +32,5 @@ can write it here!
 
 0.009: Watch in real time as you can move the player sprite around pixel by pixel! 
         The functionality is that of our old RFK file, and oh my goodness, I'm so happy I might cry. Never before have I been so happy to move around a black void as a single Q. Moving the character model is no longer involuntary, holding down the key lets you move. 
+
+0.010: Jared - Worked on populate_block_cast_action a bunch, it's close to done I just need to finish it and troubleshoot it.

@@ -6,33 +6,33 @@ from game.shared.point import Point
 
 class Block(Actor):
     """
-    The ground the player walks on
+    A square that the player can walk on or bump into.
 
     Attributes:
         _points (int): The number of points the food is worth.
     """
     def __init__(self):
-        "Constructs a new Food."
+        "Constructs a new block."
         super().__init__()
         self._points = 0
-        self.set_text("M")
-        self.set_color(constants.GREEN)
+        self.set_text("O")
+        self.set_color(constants.BLUE)
         self.reset()
         
-    def block_pop_reset(self, location):
-        """Selects a random position and points that the food is worth."""
-        ### self._points = random.randint(1, 8)
+    # def block_pop_reset(self, location):
+    #     """Selects a random position and points that the food is worth."""
+    #     ### self._points = random.randint(1, 8)
 
-        x = random.randint(1, constants.COLUMNS - 1)
-        y = random.randint(1, constants.ROWS - 1)
-        position = Point(x, y)
-        position = position.scale(constants.CELL_SIZE)
-        self.set_position(position)
+    #     x = random.randint(1, constants.COLUMNS - 1)
+    #     y = random.randint(1, constants.ROWS - 1)
+    #     position = Point(x, y)
+    #     position = position.scale(constants.CELL_SIZE)
+    #     self.set_position(position)
         
-    def get_points(self):
-        """Gets the points the food is worth.
+    # def get_points(self):
+    #     """Gets the points the food is worth.
         
-        Returns:
-            points (int): The points the food is worth.
-        """
-        return self._points
+    #     Returns:
+    #         points (int): The points the food is worth.
+    #     """
+    #     return self._points
