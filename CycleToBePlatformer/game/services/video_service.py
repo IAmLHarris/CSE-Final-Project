@@ -39,6 +39,12 @@ class VideoService:
         y = actor.get_position().get_y()
         font_size = actor.get_font_size()
         color = actor.get_color().to_tuple()
+        # print(text)
+        # print(x)
+        # print(y)
+        # print(font_size)
+        # print(color)
+
 
         if centered:
             width = pyray.measure_text(text, font_size)

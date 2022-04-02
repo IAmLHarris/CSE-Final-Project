@@ -1,9 +1,4 @@
-
-
-
-
 # This is a 15 block long floor 
-
 .block 1 70
 .block 2 70
 .block 3 70

@@ -1,4 +1,5 @@
 import random
+
 from game.shared import constants as constants
 from game.casting.actor import Actor
 from game.shared.point import Point
@@ -11,13 +12,16 @@ class Block(Actor):
     Attributes:
         _points (int): The number of points the food is worth.
     """
-    def __init__(self):
+    def __init__(self, x=0, y=0):
         "Constructs a new block."
         super().__init__()
         self._points = 0
         self.set_text("O")
         self.set_color(constants.BLUE)
-        self.reset()
+        self.set_font_size(constants.FONT_SIZE)
+        position = Point(x, y)
+        self.set_position(position)
+        # self.reset()
         
     # def block_pop_reset(self, location):
     #     """Selects a random position and points that the food is worth."""

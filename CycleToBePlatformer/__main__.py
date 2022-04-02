@@ -54,7 +54,7 @@ def main():
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
 
-    # script.add_action("output", PopulateBlockCastAction())
+    script.add_action("output", PopulateBlockCastAction())
     
     script.add_action("output", DrawActorsAction(video_service))
 
