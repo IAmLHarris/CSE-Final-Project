@@ -1,7 +1,10 @@
+from hashlib import new
+from tkinter import font
 from game.shared.constants import LEVEL1
 from game.scripting.action import Action
 from game.casting.block import Block
 from game.shared.point import Point
+from game.shared.constants import BLUE, FONT_SIZE
 # from game.casting.cast import Cast
 import os
 
@@ -48,14 +51,11 @@ class PopulateBlockCastAction(Action):
                     print(f"Casting out invalid block: \n{block}")
 
                 elif "#" not in block and "block " in block:
-                    # print(f"Accepting valid block: \n{block}")
-                    # new_block = Block
-                    # cast.
+                    print(f"Accepting valid block: \n{block}")
 
                     stripped_block=block.strip(".")
                     split_block=stripped_block.split()
                     print(split_block)
-                    # m=listl.append(listli)
 
                     blocks.append(split_block)
 
@@ -65,13 +65,23 @@ class PopulateBlockCastAction(Action):
                     y = split_block[2]
 
                     new_block = Block()
+                    
+                    # Covering all my bases for testing:
+                    print(f"x: {x}, y: {y}")
+                    new_block.set_color(BLUE)
+                    new_block.set_font_size(FONT_SIZE)
+                    new_block.set_text("O")
+                
+
+                    
                     new_block.set_position(Point(x, y))
                     cast.add_actor("blocks", new_block)
                     # This line above should basically be cast.add_item("blocks", new_block)
                     # Need to check and see if that's the right way to phrase it.
 
                 else:
-                    print("There was a logic error in determining whether the block was valid or not.")
+                    print("There was a logic error in determining whether the block was valid or not:")
+                    print(block)
 
 
             

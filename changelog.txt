@@ -34,4 +34,16 @@ can write it here!
         The functionality is that of our old RFK file, and oh my goodness, I'm so happy I might cry. Never before have I been so happy to move around a black void as a single Q. Moving the character model is no longer involuntary, holding down the key lets you move. 
 
 0.010: Jared - Worked on populate_block_cast_action a bunch, it's close to done I just need to finish it and troubleshoot it.
+
 0.011: L- Worked on populate_block_cast_action, still not working as intended
+
+0.012: Jared - Got the error to change to something else through a little bit of troubleshooting, but I still don't know what's going on. 
+        I suspect that it's an error in the needed values for pyray.draw_text, but I specifically assigned all of those and I didn't see any change. 
+        The error I'm getting is thus:
+                File "c:\Users\Jared\OneDrive\3 BYUI 2021-2022\BYUI Semester 2, Python, CSE 210\Week 11\CSE-Final-Project\CycleToBePlatformer\game\services\video_service.py", line 54, in draw_actor
+                pyray.draw_text(text, x, y, font_size, color)
+                File "C:\Users\Jared\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pyray\__init__.py", line 76, in func
+                result = a(*modified_args)
+                TypeError: an integer is required
+
+0.013: 
