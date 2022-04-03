@@ -48,21 +48,47 @@ class HandleCollisionsAction(Action):
         blocks = cast.get_actors("blocks")
 
         player_position = player.get_position()
+
+
+        # Change the offsets for how far below the player we check for collision:
+
         below_player_hitbox = player_position.add(Point(0, (CELL_SIZE / 2)))
+        below_player_hitbox_x = below_player_hitbox.get_x()
+        below_player_hitbox_y = below_player_hitbox.get_y()
+        
+
+
         # forgot = wonder.add(Point(0, 0))
         # print(forgot.get_x())
         
 
         # print(blocks.get_position().get_x())
 
+        colliding_with_at_least_one_block = False
+
         for block in blocks:
-            
+            block_position = block.get_position()
+            block_x = block_position.get_x()
+            block_y = block_position.get_y()
             block.get_position().get_x()
-            if block.get_position().equals(below_player_hitbox):
-                # This is for the south collision of the player. Use the add thing in line 50 to change the offset.
-                player.set_south_colliding_boolean(True)
-            elif not block.get_position().equals(below_player_hitbox):
-                player.set_south_colliding_boolean(False)
+            # if block.get_position().equals(below_player_hitbox): 
+
+            
+
+            # South collision:
+            if below_player_hitbox_y == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+                
+                player.set_south_colliding_variable(True)
+                colliding_with_at_least_one_block = True
+            
+            # South collision soon, 1 px away:
+            elif below_player_hitbox_y + 1 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+
+                pass
+
+            elif not block.get_position().equals(below_player_hitbox) and not colliding_with_at_least_one_block:
+                player.set_south_colliding_variable(False)
+
 
 
 

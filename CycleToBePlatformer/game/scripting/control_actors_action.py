@@ -1,4 +1,6 @@
-from game.shared import constants as constants
+from this import d
+from game.shared.constants import MAX_SPEED_EAST, MAX_SPEED_NORTH, MAX_SPEED_SOUTH, MAX_SPEED_WEST, CELL_SIZE
+
 from game.scripting.action import Action
 from game.shared.point import Point
 
@@ -20,8 +22,8 @@ class ControlActorsAction(Action):
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         self._keyboard_service = keyboard_service
-        self._player_direction = Point(0, -constants.CELL_SIZE)
-        # self._blue_direction = Point(0, -constants.CELL_SIZE)
+        self._player_direction = Point(0, -CELL_SIZE)
+        # self._blue_direction = Point(0, -CELL_SIZE)
 
     def execute(self, cast, script):
         """Executes the control actors action.
@@ -38,42 +40,54 @@ class ControlActorsAction(Action):
         dx = velocity.get_x()
         dy = velocity.get_y()
 
-        # left
-        if self._keyboard_service.is_key_down('a'):
+        # LEFT ---------------------
+
+        # Moving left when you press "a"
+        if dx >= -MAX_SPEED_WEST and self._keyboard_service.is_key_down('a'):
             dx += -1
-            
-        
-        # right
-        if self._keyboard_service.is_key_down('d'):
+
+
+        # Stopping moving left when you let go of "a"
+        if dx < 0 and not self._keyboard_service.is_key_down("a"):
             dx += 1
+            
 
+        # RIGHT ----------------------
         
-        # down
-        if self._keyboard_service.is_key_down('s'):
-            dy += 1
+        # Moving right when you press "d"
+        if dx <= MAX_SPEED_EAST:
+            if self._keyboard_service.is_key_down('d'):
+                dx += 1
 
+        # Stopping moving right when you let go of "d"
+        if dx > 0 and not self._keyboard_service.is_key_down("d"):
+            dx += -1
         
-        direction = Point(dx, dy)
 
-        
+        # JUMPING --------------------
 
         # Jumping! If you're standing on a platform, you can jump!
-        collision_south = player.get_south_colliding_boolean()
+        collision_south = player.get_south_colliding_variable()
 
         if collision_south:
-            # jump
-
             if self._keyboard_service.is_key_down('space'):
                 dy += -5
 
+
+        # GRAVITY --------------------
+
         # Gravity! If you're not standing on a platform, then you fall!
         if not collision_south:
-            if dy <= 5:
+            if dy <= MAX_SPEED_SOUTH:
                 dy += 1
             else:
-                print("Gravity isn't working right now.")
+                # print("Gravity isn't working right now.")
+                pass
 
-            # player.set_velocity(velocity)
+        # Collision with something below you! If you're standing on a platform, you stop falling!
+        if collision_south and dy >= 0:
+            dy = 0
+
 
 
         # velocity = velocity.add(Point(dx, dy))

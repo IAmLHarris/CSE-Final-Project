@@ -18,3 +18,8 @@ GREEN = Color(0, 255, 0)
 BLUE = Color(0, 0, 255)
 
 LEVEL1 = os.path.dirname(os.path.abspath(__file__)) + "/data/level1.txt"
+
+MAX_SPEED_NORTH = 5
+MAX_SPEED_EAST = 5
+MAX_SPEED_SOUTH = 5
+MAX_SPEED_WEST = 5

@@ -21,10 +21,10 @@ class Player(Actor):
         self.set_color(WHITE)
         self.grav_counter = 0
         self.prepare_body()
-        self.north_colliding_boolean = False
-        self.east_colliding_boolean = False
-        self.south_colliding_boolean = False
-        self.west_colliding_boolean = False
+        self.north_colliding_variable = False
+        self.east_colliding_variable = False
+        self.south_colliding_variable = False
+        self.west_colliding_variable = False
 
 
     def prepare_body(self):
@@ -38,45 +38,45 @@ class Player(Actor):
         self.set_velocity(position)
 
 
-    def get_colliding_booleans(self):
-        """Returns a boolean variable if whether or not the player is colliding"""
-        return (self.north_colliding_boolean, self.east_colliding_boolean, self.south_colliding_boolean, self.west_colliding_boolean)
+    def get_colliding_variables(self):
+        """Returns a variable if whether or not the player is colliding"""
+        return (self.north_colliding_variable, self.east_colliding_variable, self.south_colliding_variable, self.west_colliding_variable)
 
-    def get_north_colliding_boolean(self):
-        return self.north_colliding_boolean
+    def get_north_colliding_variable(self):
+        return self.north_colliding_variable
 
-    def get_east_colliding_boolean(self):
-        return self.east_colliding_boolean
+    def get_east_colliding_variable(self):
+        return self.east_colliding_variable
 
-    def get_south_colliding_boolean(self):
-        return self.south_colliding_boolean
+    def get_south_colliding_variable(self):
+        return self.south_colliding_variable
 
-    def get_west_colliding_boolean(self):
-        return self.west_colliding_boolean
+    def get_west_colliding_variable(self):
+        return self.west_colliding_variable
 
 
-    def set_colliding_booleans(self, bool):
-        """Returns all boolean variables as to whether the player is colliding with something in each given direction"""
-        self.north_colliding_boolean = bool[0]
-        self.east_colliding_boolean = bool[1]
-        self.south_colliding_boolean = bool[2]
-        self.west_colliding_boolean = bool[3]
+    def set_colliding_variables(self, value):
+        """Returns all variables as to whether the player is colliding with something in each given direction"""
+        self.north_colliding_variable = value[0]
+        self.east_colliding_variable = value[1]
+        self.south_colliding_variable = value[2]
+        self.west_colliding_variable = value[3]
 
-    def set_north_colliding_boolean(self, bool):
-        """Returns a boolean variable as to whether or not the player is colliding with something above them"""
-        self.north_colliding_boolean = bool
+    def set_north_colliding_variable(self, value):
+        """Returns a variable as to whether or not the player is colliding with something above them"""
+        self.north_colliding_variable = value
     
-    def set_east_colliding_boolean(self, bool):
-        """Returns a boolean variable as to whether or not the player is colliding with something to the right of them"""
-        self.east_colliding_boolean = bool
+    def set_east_colliding_variable(self, value):
+        """Returns a variable as to whether or not the player is colliding with something to the right of them"""
+        self.east_colliding_variable = value
     
-    def set_south_colliding_boolean(self, bool):
-        """Returns a boolean variable as to whether or not the player is colliding with something below them"""
-        self.south_colliding_boolean = bool
+    def set_south_colliding_variable(self, value):
+        """Returns a variable as to whether or not the player is colliding with something below them"""
+        self.south_colliding_variable = value
 
-    def set_west_colliding_boolean(self, bool):
-        """Returns a boolean variable as to whether or not the player is colliding with something to the left of them"""
-        self.west_colliding_boolean = bool
+    def set_west_colliding_variable(self, value):
+        """Returns a variable as to whether or not the player is colliding with something to the left of them"""
+        self.west_colliding_variable = value
 
 
 
@@ -96,8 +96,8 @@ class Player(Actor):
     #     """Returns the first segment of the cycle"""
     #     return self._segments[0]
 
-    def gravity(self):
-        """it's gravity, and it doesn't take any arguments, just makes you go down a pixel each time it's activated"""
+    # def gravity(self):
+    #     """it's gravity, and it doesn't take any arguments, just makes you go down a pixel each time it's activated"""
 
         # velocity = self.get_velocity()
 

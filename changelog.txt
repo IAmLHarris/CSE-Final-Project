@@ -62,6 +62,13 @@ can write it here!
         
         Currently, and this will be changed soon, but when you press left or right it adds to your momentum. I'll be setting a maximum momentum soon in the constants.
         
-
+0.017: Jared - Another large update. This one more productive, but still a lot of small changed being made.
+        I've been working largely on collision and movement. 
+        I set a few max speeds in constants and hooked them up to control_actors_action.py to limit our speed. 
+        I also set left and right to automatically bring you back to a stand still if you stop holding either of them down.
+        I changed our collision variable to be "collision_variable" rather than "collision_boolean"
+                The goal of this is to allow us to use numbers 1 through MAX_DIRECTION_SPEED to stop just on top of where the player would collide.  
+                Then we can collide with walls, floors and ceilings from as far away as we'll be able to move in one step.
+        I updated plan.txt as well, so what's on there should be accurate to what's been done and needs to be done.
         
         

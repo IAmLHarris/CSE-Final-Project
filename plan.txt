@@ -43,23 +43,27 @@ The program should be able to be run from the command line.
 
 
 TODO: 
-
+-=- DONE -=-
 Change the game to be one player. (Done by Kaelyn v0.006-v0.007)
     This includes:
     Removing the controls for the second player. 
     Removing the second player's character model in __main__.py
     Removing the collision for the second player.
+-=- DONE -=-
 
-Change the names of each of our actors. -=- DONE -=-
+-=- DONE -=-
+Change the names of each of our actors.
     Our player character should no longer be "red cycle" or similar things, and rather be called "player".
+-=- DONE -=-
 
-
-Change our movement system to only move when wasd are pressed. (Assigned to: Liam) -=- DONE -=-
+-=- DONE -=-
+Change our movement system to only move when wasd are pressed. (Assigned to: Liam) 
     I don't know where this lies, but I believe that the the issue is the in our current system the velocity is changed on a tick the button is pressed
      and it's never reset to 0. I believe in the logic for RFK the velocity is automatically set back to 0 if a button isn't being pressed.
         My recommendation would be looking at the movement of RFK, then of cycles to understand the difference between the two. In theory, that should make the answer clear.
+-=- DONE -=-
 
-
+# This might not be necessary anymore, with us using so many variables on our player actor.
 Take our resources.py file from "platformer" in resources. It is similar to cast, but for holding our level file, collisions variables and whatnot. (This line was done by Liam v0.006)
     Once we have our resources.py file set up we'll need to change EVERYWHERE in the program that we use "(cast, script)" to be "(cast, script, resources)". 
     We'll also need to instantiate it like we do with our cast in __main__.py.
@@ -67,22 +71,27 @@ Take our resources.py file from "platformer" in resources. It is similar to cast
          the level file itself or the directory for it,
          and anything else that we may need to pass between actions that isn't an actor to go in the cast.
 
+WORK IN PROGRESS
 Handle collision between the player and blocks.
     When the player is above (standing on) a block the player should stop moving down, and be able to move freely left to right, and jump. 
     When the player is to the left or right of a block the player should not be able to move into it, but still be able to...
     write ceiling thing here
 
+-=- DONE -=-
 Incorporate gravity.
     (The below is an opinion, and you can do it how you like.)
     Gravity should be an action in scripting where when the player is not colliding with something below them the player's vertical velocity 
      is lowered by a certain amount each tick. I would recommend 1 or 2. We'll probably need to play around with this and the value of jumping quite a bit.
         This could also be done not by adding -1 to the velocity, but by multiplying the downwards velocity by a value such as 0.1 or 0.2.
+-=- DONE -=-        
 
+-=- DONE? -=-
 Incorporate jumping. 
     (Again, an opinion, you can do it how you like.)
     Jumping should be defined in the same area as the rest of our velocity changes with WASD are,
      but when the spacebar is pressed the character's vertical velocity should immediately be set to a certain value. 
      I would recommend 5-25 with the assumption gravity lowers vertical speed by 1 every tick.
+-=- DONE? -=-
 
 
 As I work on things I'm seeing more and more things that I think need to change. This is another to do list.
@@ -90,6 +99,7 @@ As I work on things I'm seeing more and more things that I think need to change.
 A non-necessary error: It seems like the logic in populate_block_cast_action.py isn't catching our comment at the beginning of the file or empty lines. 
     It's okay, because they aren't being added, but it would be nice to change that.
 
+-=- DONE -=-
 Handle_gravity_action.py isn't functioning in a way where we can work in jumps very well, given that it forces the player downwards. 
     This stems from not changing the movement system to a model that uses the same velocity over and over, instead changing it. 
     So, what needs to happen here is we need the movement system to switch to a model where it effects velocity on a "read, change and replace" basis.
@@ -98,4 +108,10 @@ Handle_gravity_action.py isn't functioning in a way where we can work in jumps v
         When you aren't colliding with a block below you gravity should drag you down at a steady rate, up to a terminal velocity.
         When you jump your vertical momentum should be immediately set to a certain value, such as 5-10 ppf, then gradually lowered by gravity. 
             You should only be able to jump while colliding with a block underneath you.
+-=- DONE -=-
         
+
+
+My next to do: 
+    I need to change the booleans from true/false to a distance from collision variable. Then we can say if the player is going to collide, set their velocity to:
+        (distance from collision) - (velocity towards collision) * -1

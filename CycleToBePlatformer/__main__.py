@@ -12,7 +12,7 @@ from game.scripting.move_actors_action import MoveActorsAction
 from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.populate_block_cast_action import PopulateBlockCastAction
 from game.scripting.draw_actors_action import DrawActorsAction
-from game.scripting.handle_gravity_action import HandleGravityAction
+# from game.scripting.handle_gravity_action import HandleGravityAction
 
 from game.directing.director import Director
 
