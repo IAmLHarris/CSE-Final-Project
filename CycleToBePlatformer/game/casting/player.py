@@ -21,8 +21,10 @@ class Player(Actor):
         self.set_color(WHITE)
         self.grav_counter = 0
         self.prepare_body()
+        self.north_colliding_boolean = False
+        self.east_colliding_boolean = False
         self.south_colliding_boolean = False
-        
+        self.west_colliding_boolean = False
 
 
     def prepare_body(self):
@@ -31,17 +33,52 @@ class Player(Actor):
         position = Point(x, y)
         self.set_position(position)
 
-    def turn_head(self, position):
-        """Turns the the cycle by changing the position of the head."""
+    def set_direction(self, position):
+        """Changes the direction that the player is going. """
         self.set_velocity(position)
 
-    def get_colliding_boolean(self):
+
+    def get_colliding_booleans(self):
         """Returns a boolean variable if whether or not the player is colliding"""
+        return (self.north_colliding_boolean, self.east_colliding_boolean, self.south_colliding_boolean, self.west_colliding_boolean)
+
+    def get_north_colliding_boolean(self):
+        return self.north_colliding_boolean
+
+    def get_east_colliding_boolean(self):
+        return self.east_colliding_boolean
+
+    def get_south_colliding_boolean(self):
         return self.south_colliding_boolean
 
-    def set_colliding_boolean(self, bool):
-        """Returns a boolean variable if whether or not the player is colliding"""
+    def get_west_colliding_boolean(self):
+        return self.west_colliding_boolean
+
+
+    def set_colliding_booleans(self, bool):
+        """Returns all boolean variables as to whether the player is colliding with something in each given direction"""
+        self.north_colliding_boolean = bool[0]
+        self.east_colliding_boolean = bool[1]
+        self.south_colliding_boolean = bool[2]
+        self.west_colliding_boolean = bool[3]
+
+    def set_north_colliding_boolean(self, bool):
+        """Returns a boolean variable as to whether or not the player is colliding with something above them"""
+        self.north_colliding_boolean = bool
+    
+    def set_east_colliding_boolean(self, bool):
+        """Returns a boolean variable as to whether or not the player is colliding with something to the right of them"""
+        self.east_colliding_boolean = bool
+    
+    def set_south_colliding_boolean(self, bool):
+        """Returns a boolean variable as to whether or not the player is colliding with something below them"""
         self.south_colliding_boolean = bool
+
+    def set_west_colliding_boolean(self, bool):
+        """Returns a boolean variable as to whether or not the player is colliding with something to the left of them"""
+        self.west_colliding_boolean = bool
+
+
 
     # def move_next(self):
     #     """Moves every segment in the cycle"""
@@ -61,9 +98,26 @@ class Player(Actor):
 
     def gravity(self):
         """it's gravity, and it doesn't take any arguments, just makes you go down a pixel each time it's activated"""
-        player_position = self.get_position()
-        gravity_doing_its_thing = Point(0, self.grav_counter)
-        position = player_position.add(gravity_doing_its_thing)
+
+        # velocity = self.get_velocity()
+
+        # if velocity.get_y() <= 5:
+        #     velocity = velocity.add(Point(0, 1))
+        # else:
+        #     print("Gravity isn't working right now.")
+
+        # self.set_velocity(velocity)
+
+        # player_position = self.get_position()
+        # gravity_doing_its_thing = Point(0, self.grav_counter)
+        # position = player_position.add(gravity_doing_its_thing)
+
+        # self.grav_counter += 1
+        # self.set_position(position)
+
+
+        # OLD CODE FROM PREVIOUS PROGRAMS:
+
         # print(f"PX: {player_position.get_x()}")
         # print(f"PY: {player_position.get_y()}\n")
         # print(f"GY{gravity_doing_its_thing.get_y}")
@@ -72,9 +126,6 @@ class Player(Actor):
         # print(f"NY: {position.get_y()}\n")
         # print(position)
         # print(player_position)
-
-        self.grav_counter += 1
-        self.set_position(position)
         
 
     # def turn_head(self, velocity):

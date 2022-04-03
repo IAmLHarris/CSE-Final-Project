@@ -44,7 +44,7 @@ The program should be able to be run from the command line.
 
 TODO: 
 
-Change the game to be one player. (Mostly? done by Kaelyn v0.006-v0.007)
+Change the game to be one player. (Done by Kaelyn v0.006-v0.007)
     This includes:
     Removing the controls for the second player. 
     Removing the second player's character model in __main__.py
@@ -83,3 +83,19 @@ Incorporate jumping.
     Jumping should be defined in the same area as the rest of our velocity changes with WASD are,
      but when the spacebar is pressed the character's vertical velocity should immediately be set to a certain value. 
      I would recommend 5-25 with the assumption gravity lowers vertical speed by 1 every tick.
+
+
+As I work on things I'm seeing more and more things that I think need to change. This is another to do list.
+
+A non-necessary error: It seems like the logic in populate_block_cast_action.py isn't catching our comment at the beginning of the file or empty lines. 
+    It's okay, because they aren't being added, but it would be nice to change that.
+
+Handle_gravity_action.py isn't functioning in a way where we can work in jumps very well, given that it forces the player downwards. 
+    This stems from not changing the movement system to a model that uses the same velocity over and over, instead changing it. 
+    So, what needs to happen here is we need the movement system to switch to a model where it effects velocity on a "read, change and replace" basis.
+        With this system, when you stand still on a block you're colliding with your movement should slowly (or quickly) reset to 0 in both directions.
+        When you press left or right your horizontal momentum should be added to up to a certain point, I recommend adding 1-2 ppf (pixels per frame) up to 3-10 ppf.
+        When you aren't colliding with a block below you gravity should drag you down at a steady rate, up to a terminal velocity.
+        When you jump your vertical momentum should be immediately set to a certain value, such as 5-10 ppf, then gradually lowered by gravity. 
+            You should only be able to jump while colliding with a block underneath you.
+        

@@ -2,7 +2,7 @@ from game.shared.point import Point
 from game.scripting.action import Action
 # from game.casting.cycle import cycle
 
-class HandleGravity(Action):
+class HandleGravityAction(Action):
     """
     An update action that handles growth of the cycle actors.
     
@@ -27,19 +27,16 @@ class HandleGravity(Action):
         
         self.dy += 1
         player = cast.get_first_actor("player")
-        colliding = player.get_colliding_boolean()
+
+        player.gravity()
+
+        colliding_below = player.get_south_colliding_boolean()
         
-        # The growth of the cycles is determined by this value. 1 = every frame, 2 = every other frame, 15 = every second, 30 = every other second, etc.
-        #                    V
-        if self.game_timer % 1 == 0 and colliding == False:
+        # if self.game_timer % 1 == 0 and colliding_below == False:
+            # player.gravity()
+
             
 
             
             
-
-            # cycle2 = cycles[1]
-            # print(self.game_timer)
-            # print(dy)
-            player.gravity()
-            # cycle2.grow_tail(1)
 

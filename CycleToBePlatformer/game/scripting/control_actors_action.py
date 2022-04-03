@@ -32,9 +32,11 @@ class ControlActorsAction(Action):
         """
 
         player = cast.get_first_actor("player")
+
+        velocity = player.get_velocity()
         
-        dx = 0
-        dy = 0
+        dx = velocity.get_x()
+        dy = velocity.get_y()
 
         # left
         if self._keyboard_service.is_key_down('a'):
@@ -44,37 +46,38 @@ class ControlActorsAction(Action):
         # right
         if self._keyboard_service.is_key_down('d'):
             dx += 1
-            
-        
-        # up
-        if self._keyboard_service.is_key_down('w'):
-            dy += -1
-            
+
         
         # down
         if self._keyboard_service.is_key_down('s'):
             dy += 1
-            
+
         
         direction = Point(dx, dy)
 
-        player.turn_head(direction)
+        
 
-        # # left
-        # if self._keyboard_service.is_key_down('j'):
-        #     self._blue_direction = Point(-constants.CELL_SIZE, 0)
-        
-        # # right
-        # if self._keyboard_service.is_key_down('l'):
-        #     self._blue_direction = Point(constants.CELL_SIZE, 0)
-        
-        # # up
-        # if self._keyboard_service.is_key_down('i'):
-        #     self._blue_direction = Point(0, -constants.CELL_SIZE)
-        
-        # # down
-        # if self._keyboard_service.is_key_down('k'):
-        #     self._blue_direction = Point(0, constants.CELL_SIZE)
-        
-        # blue_cycle = cycles[1]
-        # blue_cycle.turn_head(self._blue_direction)
+        # Jumping! If you're standing on a platform, you can jump!
+        collision_south = player.get_south_colliding_boolean()
+
+        if collision_south:
+            # jump
+
+            if self._keyboard_service.is_key_down('space'):
+                dy += -5
+
+        # Gravity! If you're not standing on a platform, then you fall!
+        if not collision_south:
+            if dy <= 5:
+                dy += 1
+            else:
+                print("Gravity isn't working right now.")
+
+            # player.set_velocity(velocity)
+
+
+        # velocity = velocity.add(Point(dx, dy))
+
+        # player.set_velocity(velocity)
+        player.set_velocity(Point(dx, dy))
+    

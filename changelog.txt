@@ -51,3 +51,17 @@ can write it here!
 0.014: L- Gravity funtions. It's fast, I think I screwed up the addition somehow, but boy does it goes down.
 
 0.015: L- Moderately janky collision added! Requires refinement on the gravity end, but it works!
+
+0.016: Jared - Okay, there's a lot going on in this update.
+        So, I started changing some things that were already programmed because they weren't designed in a way that we could use other things with. 
+        Gravity I changed from a system where it just straight up moves you to a system that modifies the velocity of the player.
+                I also moved gravity to be in control_actors_action, because I felt like that was a better place for it than player.py.
+                        In moving the location of our gravity Handle_gravity_action.py became obsolete, and will likely be deleted very soon.
+        I changed the collision variable from one to 4, and I made them directional. This will allow us to better implement sideways and upwards collision in the future.
+                In doing this, I also changed the way that collision was being handled to use specific, descriptive variables. 
+        
+        Currently, and this will be changed soon, but when you press left or right it adds to your momentum. I'll be setting a maximum momentum soon in the constants.
+        
+
+        
+        

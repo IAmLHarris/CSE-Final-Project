@@ -1,3 +1,4 @@
+from game.shared.constants import CELL_SIZE
 from game.shared import constants as constants
 from game.casting.actor import Actor
 from game.scripting.action import Action
@@ -46,8 +47,9 @@ class HandleCollisionsAction(Action):
         player = cast.get_first_actor("player")
         blocks = cast.get_actors("blocks")
 
-        wonder = player.get_position()
-        forgot = wonder.add(Point(0, 0))
+        player_position = player.get_position()
+        below_player_hitbox = player_position.add(Point(0, (CELL_SIZE / 2)))
+        # forgot = wonder.add(Point(0, 0))
         # print(forgot.get_x())
         
 
@@ -56,9 +58,17 @@ class HandleCollisionsAction(Action):
         for block in blocks:
             
             block.get_position().get_x()
-            if block.get_position().equals(wonder):
+            if block.get_position().equals(below_player_hitbox):
                 # This is for the south collision of the player. Use the add thing in line 50 to change the offset.
-                player.set_colliding_boolean(True)
+                player.set_south_colliding_boolean(True)
+            elif not block.get_position().equals(below_player_hitbox):
+                player.set_south_colliding_boolean(False)
+
+
+
+
+
+
 
         # player.get_position()
         # print(f"PX: {player.get_x()}")
@@ -71,22 +81,6 @@ class HandleCollisionsAction(Action):
 
         # # head2 = cycle2.get_segments()[0]
         # # segment2 = cycle2.get_segments()[1:]
-
-        # for section1 in segment1: 
-        #     if head1.get_position().equals(section1.get_position()): 
-        #         self._is_game_over = True
-        #         self._red_wins = False
-        #     # if head2.get_position().equals(section1.get_position()): 
-        #     #     self._is_game_over = True
-        #     #     self._red_wins = True
-
-        # # for section2 in segment2:
-        # #     if head1.get_position().equals(section2.get_position()): 
-        # #         self._is_game_over = True
-        # #         self._red_wins = False
-        # #     if head2.get_position().equals(section2.get_position()): 
-        # #         self._is_game_over = True
-        # #         self._red_wins = True
         
         
     def _handle_game_over(self, cast):

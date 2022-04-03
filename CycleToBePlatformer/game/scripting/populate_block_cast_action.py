@@ -47,7 +47,7 @@ class PopulateBlockCastAction(Action):
 
                 
                 # print("Adding block to list in PopulateBlockCastAction")
-                if "#" in block and "block " not in block:
+                if ("#" in block and "block " not in block) or block == "":
                     # print(f"Casting out invalid block: \n{block}")
                     pass
 
@@ -83,9 +83,10 @@ class PopulateBlockCastAction(Action):
                     # Need to check and see if that's the right way to phrase it.
 
                 else:
-                    # print("There was a logic error in determining whether the block was valid or not:")
-                    # print(block)
+                    print("There was a logic error in determining whether the block was valid or not:")
+                    print(block)
                     pass
+
     def get_populated_block_cast(self):
         # print(self.blocks)
         return self.blocks

@@ -45,8 +45,8 @@ class DrawActorsAction(Action):
         
         self._video_service.draw_actors(blocks)
         self._video_service.draw_actors(players)
-        # self._video_service.draw_actors(blue_segments)
+
         # self._video_service.draw_actor(score_one)
-        # self._video_service.draw_actor(score_two)
+
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()
