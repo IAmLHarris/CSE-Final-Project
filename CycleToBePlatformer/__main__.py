@@ -48,14 +48,7 @@ def main():
         # Testing line V
         # print(f"New block being added.\nX: {x}, Y: {y}")
         # print(split_block)
-
-
-
-    # print(cast.get_actors("blocks"))
-    # i_hate_this = populated_blocks.get_populated_block_cast
-    # print(i_hate_this)
     
-
 
 
     cast.add_actor("player", player)
