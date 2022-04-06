@@ -71,4 +71,4 @@ can write it here!
                 Then we can collide with walls, floors and ceilings from as far away as we'll be able to move in one step.
         I updated plan.txt as well, so what's on there should be accurate to what's been done and needs to be done.
         
-        
+0.018: Jared - Hopped on, checked what needs to be done, and started work on levels.

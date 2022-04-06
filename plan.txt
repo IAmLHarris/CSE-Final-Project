@@ -114,4 +114,4 @@ Handle_gravity_action.py isn't functioning in a way where we can work in jumps v
 
 My next to do: 
     I need to change the booleans from true/false to a distance from collision variable. Then we can say if the player is going to collide, set their velocity to:
-        (distance from collision) - (velocity towards collision) * -1
+        ((distance from collision) - (velocity towards collision)) * -1

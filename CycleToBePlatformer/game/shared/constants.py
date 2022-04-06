@@ -2,11 +2,11 @@ from game.shared.color import Color
 import os
 
 # Just a list of constants for reference elsewhere, nothing to see here.
-COLUMNS = 40
-ROWS = 40
-CELL_SIZE = 25
-MAX_X = 500
-MAX_Y = 500
+COLUMNS = 32
+ROWS = 32
+CELL_SIZE = 16
+MAX_X = 512
+MAX_Y = 512
 FRAME_RATE = 60
 FONT_SIZE = 25
 CAPTION = "Team 6's Platformer"

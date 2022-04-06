@@ -1,18 +1,26 @@
-# This is a 15 block long floor 
+# This is a 20 block long floor 
 
-.block 0 7
-.block 1 7
-.block 2 7
-.block 3 7
-.block 4 7
-.block 5 7
-.block 6 7
-.block 7 7
-.block 8 7
-.block 9 7
-.block 10 7
-.block 11 7
-.block 12 7
-.block 13 7
-.block 14 7
-.block 15 7
+.block 0 30
+.block 1 30
+.block 2 30
+.block 3 30
+.block 4 30
+.block 5 30
+.block 6 30
+.block 7 30
+.block 8 30
+.block 9 30
+.block 10 30
+.block 11 30
+.block 12 30
+.block 13 30
+.block 14 30
+.block 15 30
+.block 16 30
+.block 17 30
+.block 18 30
+.block 19 30
+.block 20 30
+
+
+# I want to write a wall on the left side x 0 y 30-15?
