@@ -69,24 +69,53 @@ class ControlActorsAction(Action):
         # Jumping! If you're standing on a platform, you can jump!
         collision_south = player.get_south_colliding_variable()
 
-        if collision_south:
-            if self._keyboard_service.is_key_down('space'):
-                dy += -5
+        if collision_south == True and self._keyboard_service.is_key_down('space'):
+            dy += -MAX_SPEED_NORTH
 
 
         # GRAVITY --------------------
 
         # Gravity! If you're not standing on a platform, then you fall!
-        if not collision_south:
+        if collision_south == False:
             if dy <= MAX_SPEED_SOUTH:
                 dy += 1
+                # print("Gravity!")
             else:
                 # print("Gravity isn't working right now.")
                 pass
 
+
+        # For Liam: This section, and the section in handle_collisions_action relate to the issue I'm having. V
+
         # Collision with something below you! If you're standing on a platform, you stop falling!
         if collision_south and dy >= 0:
             dy = 0
+            # print("Direct collision south")
+
+        elif collision_south == 1 and dy >= 1:
+            dy = 1
+            # print("Collision south 1")
+
+        elif collision_south == 2 and dy >= 2:
+            dy = 2
+            # print("Collision south 2")
+
+        elif collision_south == 3 and dy >= 3:
+            dy = 3
+            # print("Collision south 3")
+
+        elif collision_south == 4 and dy >= 4:
+            dy = 4
+            # print("Collision south 4")
+
+        elif collision_south == 5 and dy >= 5:
+            dy = 5
+            # print("Collision south 5")
+
+        # else:
+            # print("No collision south")
+
+        # print(f"South collision: {collision_south}")
 
 
 

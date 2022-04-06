@@ -72,3 +72,8 @@ can write it here!
         I updated plan.txt as well, so what's on there should be accurate to what's been done and needs to be done.
         
 0.018: Jared - Hopped on, checked what needs to be done, and started work on levels.
+
+0.019: Jared - I worked on the level a little bit more, but mostly worked on collision.
+        I'm running into some sort of problem with the collision that I'd like for someone to work on.
+        Details are in plan.txt
+                

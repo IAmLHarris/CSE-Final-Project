@@ -52,7 +52,7 @@ class HandleCollisionsAction(Action):
 
         # Change the offsets for how far below the player we check for collision:
 
-        below_player_hitbox = player_position.add(Point(0, (CELL_SIZE / 2)))
+        below_player_hitbox = player_position.add(Point(0, (CELL_SIZE)))
         below_player_hitbox_x = below_player_hitbox.get_x()
         below_player_hitbox_y = below_player_hitbox.get_y()
         
@@ -64,7 +64,7 @@ class HandleCollisionsAction(Action):
 
         # print(blocks.get_position().get_x())
 
-        colliding_with_at_least_one_block = False
+        colliding_with_at_least_one_block_south = False
 
         for block in blocks:
             block_position = block.get_position()
@@ -75,18 +75,35 @@ class HandleCollisionsAction(Action):
 
             
 
+            # For Liam: This section, and the section in control_actors_action relate to the issue I'm having. V
+
             # South collision:
             if below_player_hitbox_y == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
                 
                 player.set_south_colliding_variable(True)
-                colliding_with_at_least_one_block = True
+                colliding_with_at_least_one_block_south = True
             
             # South collision soon, 1 px away:
             elif below_player_hitbox_y + 1 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+                player.set_south_colliding_variable(1)
+                colliding_with_at_least_one_block_south = True
 
-                pass
+            # South collision soon, 2 px away:
+            elif below_player_hitbox_y + 2 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+                player.set_south_colliding_variable(2)
+                colliding_with_at_least_one_block_south = True
 
-            elif not block.get_position().equals(below_player_hitbox) and not colliding_with_at_least_one_block:
+            # South collision soon, 3 px away:
+            elif below_player_hitbox_y + 3 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+                player.set_south_colliding_variable(3)
+                colliding_with_at_least_one_block_south = True
+
+            # South collision soon, 4 px away:
+            elif below_player_hitbox_y + 4 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+                player.set_south_colliding_variable(4)
+                colliding_with_at_least_one_block_south = True
+
+            elif not block.get_position().equals(below_player_hitbox) and not colliding_with_at_least_one_block_south:
                 player.set_south_colliding_variable(False)
 
 

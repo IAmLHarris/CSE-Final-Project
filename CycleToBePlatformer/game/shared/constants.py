@@ -7,7 +7,7 @@ ROWS = 32
 CELL_SIZE = 16
 MAX_X = 512
 MAX_Y = 512
-FRAME_RATE = 60
+FRAME_RATE = 15
 FONT_SIZE = 25
 CAPTION = "Team 6's Platformer"
 SNAKE_LENGTH = 1
@@ -19,7 +19,7 @@ BLUE = Color(0, 0, 255)
 
 LEVEL1 = os.path.dirname(os.path.abspath(__file__)) + "/data/level1.txt"
 
-MAX_SPEED_NORTH = 5
+MAX_SPEED_NORTH = 10
 MAX_SPEED_EAST = 5
 MAX_SPEED_SOUTH = 5
 MAX_SPEED_WEST = 5

@@ -115,3 +115,20 @@ Handle_gravity_action.py isn't functioning in a way where we can work in jumps v
 My next to do: 
     I need to change the booleans from true/false to a distance from collision variable. Then we can say if the player is going to collide, set their velocity to:
         ((distance from collision) - (velocity towards collision)) * -1
+
+
+
+    For Liam: V
+
+    Here's how the collision works and is supposed to work:
+        (in handle_collisions_action.py)
+        When the player's character gets within MAX_SPEED_SOUTH (5) pixels of a block,
+        the south_colliding_variable is set to however many pixels away it is or True if it's 
+        immediately colliding with it, otherwise that variable is set to False.
+        (in control_actors_action)
+        Then that variable is taken as collision_south, and this is where things start going wrong. 
+
+        The way it's supposed to work is that that variable is taken and the downwards velocity (dy, positive values are down)
+        is modified to land the character in exactly the right place on the next frame so that it's now colliding with the block
+        in a way that would make the "south_colliding_variable" True or = 0. 
+        For some reason that doesn't happen, and I'd like your help with that.

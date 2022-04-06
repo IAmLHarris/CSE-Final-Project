@@ -23,4 +23,23 @@
 .block 20 30
 
 
-# I want to write a wall on the left side x 0 y 30-15?
+# Left side wall
+.block 0 29
+.block 0 28
+.block 0 27
+.block 0 26
+.block 0 25
+.block 0 24
+.block 0 23
+.block 0 22
+.block 0 21
+.block 0 20
+.block 0 19
+.block 0 18
+.block 0 17
+.block 0 16
+.block 0 15
+.block 0 14
+.block 0 13
+.block 0 12
+.block 0 11
