@@ -85,37 +85,38 @@ class ControlActorsAction(Action):
                 pass
 
 
-        # For Liam: This section, and the section in handle_collisions_action relate to the issue I'm having. V
+        if collision_south <= MAX_SPEED_SOUTH and dy >= collision_south and collision_south != False:
+            dy = collision_south - 1
 
         # Collision with something below you! If you're standing on a platform, you stop falling!
-        if collision_south and dy >= 0:
-            dy = 0
+        # if collision_south and dy >= 0:
+        #     dy = 0
             # print("Direct collision south")
 
-        elif collision_south == 1 and dy >= 1:
-            dy = 1
-            # print("Collision south 1")
+        # elif collision_south == 1 and dy >= 1:
+        #     dy = 1
+        #     # print("Collision south 1")
 
-        elif collision_south == 2 and dy >= 2:
-            dy = 2
-            # print("Collision south 2")
+        # elif collision_south == 2 and dy >= 2:
+        #     dy = 2
+        #     # print("Collision south 2")
 
-        elif collision_south == 3 and dy >= 3:
-            dy = 3
-            # print("Collision south 3")
+        # elif collision_south == 3 and dy >= 3:
+        #     dy = 3
+        #     # print("Collision south 3")
 
-        elif collision_south == 4 and dy >= 4:
-            dy = 4
-            # print("Collision south 4")
+        # elif collision_south == 4 and dy >= 4:
+        #     dy = 4
+        #     # print("Collision south 4")
 
-        elif collision_south == 5 and dy >= 5:
-            dy = 5
-            # print("Collision south 5")
+        # elif collision_south == 5 and dy >= 5:
+        #     dy = 5
+        #     # print("Collision south 5")
 
         # else:
             # print("No collision south")
 
-        # print(f"South collision: {collision_south}")
+        print(f"South collision: {collision_south} | dy: {dy}")
 
 
 
