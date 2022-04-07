@@ -1,4 +1,4 @@
-from game.shared.constants import CELL_SIZE
+from game.shared.constants import CELL_SIZE, MAX_SPEED_EAST, MAX_SPEED_NORTH, MAX_SPEED_SOUTH, MAX_SPEED_WEST
 from game.shared import constants as constants
 from game.casting.actor import Actor
 from game.scripting.action import Action
@@ -52,9 +52,14 @@ class HandleCollisionsAction(Action):
 
         # Change the offsets for how far below the player we check for collision:
 
-        below_player_hitbox = player_position.add(Point(0, (CELL_SIZE)))
-        below_player_hitbox_x = below_player_hitbox.get_x()
-        below_player_hitbox_y = below_player_hitbox.get_y()
+        # below_player_hitbox = player_position.add(Point(0, (CELL_SIZE)))
+        # below_player_hitbox_x = below_player_hitbox.get_x()
+        # below_player_hitbox_y = below_player_hitbox.get_y()
+        player_coordinates = player_position
+        player_x = player_coordinates.get_x()
+        player_y = player_coordinates.get_y()
+
+
         
 
 
@@ -65,65 +70,57 @@ class HandleCollisionsAction(Action):
         # print(blocks.get_position().get_x())
 
         colliding_with_at_least_one_block_south = False
+        closest_block_south_y = False
 
         for block in blocks:
             block_position = block.get_position()
             block_x = block_position.get_x()
             block_y = block_position.get_y()
             block.get_position().get_x()
-            # if block.get_position().equals(below_player_hitbox): 
 
             
 
-            # For Liam: This section, and the section in control_actors_action relate to the issue I'm having. V
 
-            # South collision:
-            if below_player_hitbox_y == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-                
-                player.set_south_colliding_variable(True)
-                colliding_with_at_least_one_block_south = True
+            # Rewriting south collision:
+            if ((block_y - player_y >= 0) and (block_y - player_y <= MAX_SPEED_SOUTH))    and    ((player_x <= block_x + (CELL_SIZE / 2)) and (player_x >= block_x - (CELL_SIZE / 2))):
+                if closest_block_south_y == False or closest_block_south_y < block_y:
+                    player.set_south_colliding_variable(block_y - player_y)
+                    colliding_with_at_least_one_block_south = True
+                    closest_block_south_y = block_y
             
-            # South collision soon, 1 px away:
-            elif below_player_hitbox_y + 1 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-                player.set_south_colliding_variable(1)
-                colliding_with_at_least_one_block_south = True
-
-            # South collision soon, 2 px away:
-            elif below_player_hitbox_y + 2 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-                player.set_south_colliding_variable(2)
-                colliding_with_at_least_one_block_south = True
-
-            # South collision soon, 3 px away:
-            elif below_player_hitbox_y + 3 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-                player.set_south_colliding_variable(3)
-                colliding_with_at_least_one_block_south = True
-
-            # South collision soon, 4 px away:
-            elif below_player_hitbox_y + 4 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-                player.set_south_colliding_variable(4)
-                colliding_with_at_least_one_block_south = True
-
-            elif not block.get_position().equals(below_player_hitbox) and not colliding_with_at_least_one_block_south:
+            elif colliding_with_at_least_one_block_south == False:
                 player.set_south_colliding_variable(False)
 
 
+            # # Old South collision:
+            # if below_player_hitbox_y == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+                
+            #     player.set_south_colliding_variable(True)
+            #     colliding_with_at_least_one_block_south = True
+            
+            # # South collision soon, 1 px away:
+            # elif below_player_hitbox_y + 1 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+            #     player.set_south_colliding_variable(1)
+            #     colliding_with_at_least_one_block_south = True
 
+            # # South collision soon, 2 px away:
+            # elif below_player_hitbox_y + 2 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+            #     player.set_south_colliding_variable(2)
+            #     colliding_with_at_least_one_block_south = True
 
+            # # South collision soon, 3 px away:
+            # elif below_player_hitbox_y + 3 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+            #     player.set_south_colliding_variable(3)
+            #     colliding_with_at_least_one_block_south = True
 
+            # # South collision soon, 4 px away:
+            # elif below_player_hitbox_y + 4 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
+            #     player.set_south_colliding_variable(4)
+            #     colliding_with_at_least_one_block_south = True
 
+            # elif not block.get_position().equals(below_player_hitbox) and not colliding_with_at_least_one_block_south:
+            #     player.set_south_colliding_variable(False)
 
-
-        # player.get_position()
-        # print(f"PX: {player.get_x()}")
-        # print(f"PY: {player.get_y()}\n")
-        # cycle1 = cycles[0]
-        # # cycle2 = cycles[1]
-
-        # head1 = cycle1.get_segments()[0]
-        # segment1 = cycle1.get_segments()[1:]
-
-        # # head2 = cycle2.get_segments()[0]
-        # # segment2 = cycle2.get_segments()[1:]
         
         
     def _handle_game_over(self, cast):

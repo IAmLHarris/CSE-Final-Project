@@ -76,4 +76,7 @@ can write it here!
 0.019: Jared - I worked on the level a little bit more, but mostly worked on collision.
         I'm running into some sort of problem with the collision that I'd like for someone to work on.
         Details are in plan.txt
+
+0.020: Jared - I'm hopping on again to try and solve this problem. Liam worked on it for a little bit earlier, but didn't make enough progress to warrant pushing according to him.
+        I rewrote the way collision was being handled in control_actors_action and handle_collisions_action
                 

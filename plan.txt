@@ -94,10 +94,8 @@ Incorporate jumping.
 -=- DONE? -=-
 
 
-As I work on things I'm seeing more and more things that I think need to change. This is another to do list.
+------------------------------------------
 
-A non-necessary error: It seems like the logic in populate_block_cast_action.py isn't catching our comment at the beginning of the file or empty lines. 
-    It's okay, because they aren't being added, but it would be nice to change that.
 
 -=- DONE -=-
 Handle_gravity_action.py isn't functioning in a way where we can work in jumps very well, given that it forces the player downwards. 
@@ -111,13 +109,13 @@ Handle_gravity_action.py isn't functioning in a way where we can work in jumps v
 -=- DONE -=-
         
 
+-=- DONE? -=-
+I need to change the booleans from true/false to a distance from collision variable. Then we can say if the player is going to collide, set their velocity to:
+    ((distance from collision) - (velocity towards collision)) * -1
+-=- DONE? -=-
 
-My next to do: 
-    I need to change the booleans from true/false to a distance from collision variable. Then we can say if the player is going to collide, set their velocity to:
-        ((distance from collision) - (velocity towards collision)) * -1
 
-
-
+-=- RESOLVED -=-
     For Liam: V
 
     Here's how the collision works and is supposed to work:
@@ -132,3 +130,4 @@ My next to do:
         is modified to land the character in exactly the right place on the next frame so that it's now colliding with the block
         in a way that would make the "south_colliding_variable" True or = 0. 
         For some reason that doesn't happen, and I'd like your help with that.
+-=- RESOLVED -=-
