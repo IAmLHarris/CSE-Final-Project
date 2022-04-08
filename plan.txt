@@ -43,6 +43,43 @@ The program should be able to be run from the command line.
 
 
 TODO: 
+
+-----------FRESH TO DO---------------------
+
+So, we need to get the game into a state where it's working nicely and enjoyable to play. 
+This to me means that we need to do these things:
+
+Required: 
+    West collision needs to be fixed.
+    North collision needs to be implemented.
+    East collision needs to be implemented.
+
+    We need to design our first level to be more engaging.
+
+Optional, but practically required:
+    We may need to set up a system to change levels, and set up two more levels.
+    Jumping can be a bit buggy when you hold it down. We should fix that.
+
+
+Optional:
+    We may want to add more objects like blocks in our levels, such as hazards or rewards.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -=- DONE -=-
 Change the game to be one player. (Done by Kaelyn v0.006-v0.007)
     This includes:

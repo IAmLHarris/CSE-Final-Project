@@ -50,27 +50,24 @@ class HandleCollisionsAction(Action):
         player_position = player.get_position()
 
 
-        # Change the offsets for how far below the player we check for collision:
-
-        # below_player_hitbox = player_position.add(Point(0, (CELL_SIZE)))
-        # below_player_hitbox_x = below_player_hitbox.get_x()
-        # below_player_hitbox_y = below_player_hitbox.get_y()
+        # These set 
         player_coordinates = player_position
         player_x = player_coordinates.get_x()
         player_y = player_coordinates.get_y()
 
-
-        
-
-
-        # forgot = wonder.add(Point(0, 0))
-        # print(forgot.get_x())
         
 
         # print(blocks.get_position().get_x())
 
+        colliding_with_at_least_one_block_north = False
+        colliding_with_at_least_one_block_east = False
         colliding_with_at_least_one_block_south = False
+        colliding_with_at_least_one_block_west = False
+    
+        closest_block_north_y = False
+        closest_block_east_x = False
         closest_block_south_y = False
+        closest_block_west_x = False
 
         for block in blocks:
             block_position = block.get_position()
@@ -81,45 +78,38 @@ class HandleCollisionsAction(Action):
             
 
 
-            # Rewriting south collision:
-            if ((block_y - player_y >= 0) and (block_y - player_y <= MAX_SPEED_SOUTH))    and    ((player_x <= block_x + (CELL_SIZE / 2)) and (player_x >= block_x - (CELL_SIZE / 2))):
-                if closest_block_south_y == False or closest_block_south_y < block_y:
-                    player.set_south_colliding_variable(block_y - player_y)
+            # South Collision! Rewritten in version 0.020 for better maintainability.
+            block_y_adjusted_for_south_collision = block_y - CELL_SIZE
+            if ((block_y_adjusted_for_south_collision - player_y >= 0) and (block_y_adjusted_for_south_collision - player_y <= MAX_SPEED_SOUTH))    and    ((player_x <= block_x + (CELL_SIZE / 2)) and (player_x >= block_x - (CELL_SIZE / 2))):
+                if closest_block_south_y == False or closest_block_south_y < block_y_adjusted_for_south_collision:
+                    player.set_south_colliding_variable(block_y_adjusted_for_south_collision - player_y)
                     colliding_with_at_least_one_block_south = True
-                    closest_block_south_y = block_y
+                    closest_block_south_y = block_y_adjusted_for_south_collision
             
             elif colliding_with_at_least_one_block_south == False:
                 player.set_south_colliding_variable(False)
 
-
-            # # Old South collision:
-            # if below_player_hitbox_y == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-                
-            #     player.set_south_colliding_variable(True)
-            #     colliding_with_at_least_one_block_south = True
+            # West Collision! Written in version 0.021 based off of south collision.
+            block_x_adjusted_for_west_collision = block_x + CELL_SIZE
+            if ((player_x - block_x_adjusted_for_west_collision >= 0) and (player_x - block_x_adjusted_for_west_collision <= MAX_SPEED_WEST))    and    ((player_y <= block_y + (CELL_SIZE / 2)) and (player_y >= block_y - (CELL_SIZE / 2))):
+                if closest_block_west_x == False or closest_block_west_x > block_x_adjusted_for_west_collision:
+                    player.set_west_colliding_variable(player_x - block_x_adjusted_for_west_collision)
+                    colliding_with_at_least_one_block_west = True
+                    closest_block_west_x = block_x_adjusted_for_west_collision
+                    print("Just activated West Collision")
             
-            # # South collision soon, 1 px away:
-            # elif below_player_hitbox_y + 1 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-            #     player.set_south_colliding_variable(1)
-            #     colliding_with_at_least_one_block_south = True
+            elif colliding_with_at_least_one_block_west == False:
+                player.set_west_colliding_variable(False)
 
-            # # South collision soon, 2 px away:
-            # elif below_player_hitbox_y + 2 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-            #     player.set_south_colliding_variable(2)
-            #     colliding_with_at_least_one_block_south = True
 
-            # # South collision soon, 3 px away:
-            # elif below_player_hitbox_y + 3 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-            #     player.set_south_colliding_variable(3)
-            #     colliding_with_at_least_one_block_south = True
+            
 
-            # # South collision soon, 4 px away:
-            # elif below_player_hitbox_y + 4 == block_y and below_player_hitbox_x <= block_x + (CELL_SIZE / 2) and below_player_hitbox_x >= block_x - (CELL_SIZE / 2):
-            #     player.set_south_colliding_variable(4)
-            #     colliding_with_at_least_one_block_south = True
 
-            # elif not block.get_position().equals(below_player_hitbox) and not colliding_with_at_least_one_block_south:
-            #     player.set_south_colliding_variable(False)
+
+
+
+
+
 
         
         

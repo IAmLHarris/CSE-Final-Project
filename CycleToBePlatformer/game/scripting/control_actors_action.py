@@ -40,10 +40,15 @@ class ControlActorsAction(Action):
         dx = velocity.get_x()
         dy = velocity.get_y()
 
+        collision_north = player.get_north_colliding_variable()
+        collision_east = player.get_east_colliding_variable()
+        collision_south = player.get_south_colliding_variable()
+        collision_west = player.get_west_colliding_variable()
+
         # LEFT ---------------------
 
         # Moving left when you press "a"
-        if dx >= -MAX_SPEED_WEST and self._keyboard_service.is_key_down('a'):
+        if dx > -MAX_SPEED_WEST and self._keyboard_service.is_key_down('a'):
             dx += -1
 
 
@@ -55,7 +60,7 @@ class ControlActorsAction(Action):
         # RIGHT ----------------------
         
         # Moving right when you press "d"
-        if dx <= MAX_SPEED_EAST:
+        if dx < MAX_SPEED_EAST:
             if self._keyboard_service.is_key_down('d'):
                 dx += 1
 
@@ -67,8 +72,6 @@ class ControlActorsAction(Action):
         # JUMPING --------------------
 
         # Jumping! If you're standing on a platform, you can jump!
-        collision_south = player.get_south_colliding_variable()
-
         if collision_south == True and self._keyboard_service.is_key_down('space'):
             dy += -MAX_SPEED_NORTH
 
@@ -77,7 +80,7 @@ class ControlActorsAction(Action):
 
         # Gravity! If you're not standing on a platform, then you fall!
         if collision_south == False:
-            if dy <= MAX_SPEED_SOUTH:
+            if dy < MAX_SPEED_SOUTH:
                 dy += 1
                 # print("Gravity!")
             else:
@@ -85,43 +88,31 @@ class ControlActorsAction(Action):
                 pass
 
 
+        
+
+        # South Collision! If you're standing on a block, then you stop moving down.
+        # If you're going to run into a block, then you move up to it, and don't go past.
         if collision_south <= MAX_SPEED_SOUTH and dy >= collision_south and collision_south != False:
             dy = collision_south - 1
 
-        # Collision with something below you! If you're standing on a platform, you stop falling!
-        # if collision_south and dy >= 0:
-        #     dy = 0
-            # print("Direct collision south")
+        # East Collision!
+        if collision_east <= MAX_SPEED_EAST and dx >= collision_east and collision_east != False:
+            dx = collision_east + 1
 
-        # elif collision_south == 1 and dy >= 1:
-        #     dy = 1
-        #     # print("Collision south 1")
+        # North Collision!
+        if collision_north <= MAX_SPEED_NORTH and -dy >= collision_north and collision_north != False:
+            dy = collision_north + 1
 
-        # elif collision_south == 2 and dy >= 2:
-        #     dy = 2
-        #     # print("Collision south 2")
+        # West Collision!
+        if collision_west <= MAX_SPEED_WEST and -dx >= collision_west and collision_west != False:
+            dx = collision_west + 1
 
-        # elif collision_south == 3 and dy >= 3:
-        #     dy = 3
-        #     # print("Collision south 3")
+        # print(f"South collision: {collision_south} | dy: {dy}")
 
-        # elif collision_south == 4 and dy >= 4:
-        #     dy = 4
-        #     # print("Collision south 4")
-
-        # elif collision_south == 5 and dy >= 5:
-        #     dy = 5
-        #     # print("Collision south 5")
-
-        # else:
-            # print("No collision south")
-
-        print(f"South collision: {collision_south} | dy: {dy}")
-
-
-
-        # velocity = velocity.add(Point(dx, dy))
-
-        # player.set_velocity(velocity)
         player.set_velocity(Point(dx, dy))
+
+        # # Troubleshooting lines:
+        # current_position = player.get_position()
+        # current_x_position = current_position.get_x()
+        # print(current_x_position)
     

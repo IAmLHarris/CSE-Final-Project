@@ -70,9 +70,6 @@ def main():
     script.add_action("update", MoveActorsAction())
     
     script.add_action("update", HandleCollisionsAction(cast))
-
-    # script.add_action("update", HandleGravityAction())
-    
     
     script.add_action("output", DrawActorsAction(video_service))
 
