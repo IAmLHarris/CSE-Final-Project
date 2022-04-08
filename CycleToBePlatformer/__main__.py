@@ -3,7 +3,7 @@ from game.shared import constants as constants
 
 from game.casting.cast import Cast
 from game.casting.block import Block
-from game.casting.score import Score
+# from game.casting.score import Score
 from game.casting.player import Player
 
 from game.scripting.script import Script

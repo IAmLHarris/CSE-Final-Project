@@ -23,8 +23,7 @@ class HandleCollisionsAction(Action):
         
         
         
-        self._is_game_over = False
-        self._red_wins = "who cares"
+        
 
     def execute(self, cast, script):
         """Executes the handle collisions action.
@@ -33,10 +32,10 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        if not self._is_game_over:
+        
             
-            self._handle_collision(cast)
-            self._handle_game_over(cast)
+        self._handle_collision(cast)
+        # self._handle_game_over(cast)
     
     def _handle_collision(self, cast):
         """Sets the game over flag if a cycle collides with one of it or it's opponent's segments.
@@ -85,6 +84,7 @@ class HandleCollisionsAction(Action):
                     player.set_south_colliding_variable(block_y_adjusted_for_south_collision - player_y)
                     colliding_with_at_least_one_block_south = True
                     closest_block_south_y = block_y_adjusted_for_south_collision
+                    
             
             elif colliding_with_at_least_one_block_south == False:
                 player.set_south_colliding_variable(False)
@@ -93,7 +93,7 @@ class HandleCollisionsAction(Action):
             block_x_adjusted_for_west_collision = block_x + CELL_SIZE
             if ((player_x - block_x_adjusted_for_west_collision >= 0) and (player_x - block_x_adjusted_for_west_collision <= MAX_SPEED_WEST))    and    ((player_y <= block_y + (CELL_SIZE / 2)) and (player_y >= block_y - (CELL_SIZE / 2))):
                 if closest_block_west_x == False or closest_block_west_x > block_x_adjusted_for_west_collision:
-                    player.set_west_colliding_variable(player_x - block_x_adjusted_for_west_collision)
+                    player.set_west_colliding_variable(block_x_adjusted_for_west_collision - player_x)
                     colliding_with_at_least_one_block_west = True
                     closest_block_west_x = block_x_adjusted_for_west_collision
                     print("Just activated West Collision")
@@ -102,50 +102,17 @@ class HandleCollisionsAction(Action):
                 player.set_west_colliding_variable(False)
 
 
+            # East collision. Written in version 0.022 for the sake of understanding what's going wrong with West collision.
+            block_x_adjusted_for_east_collision = block_x - CELL_SIZE
+            if ((block_x_adjusted_for_east_collision - player_x >= 0) and (block_x_adjusted_for_east_collision - player_x <= MAX_SPEED_EAST))    and    ((player_y <= block_y + (CELL_SIZE / 2)) and (player_y >= block_y - (CELL_SIZE / 2))):
+                if closest_block_east_x == False or closest_block_east_x < block_x_adjusted_for_east_collision:
+                    print(block_x_adjusted_for_east_collision + player_x)
+                    player.set_east_colliding_variable(block_x_adjusted_for_east_collision - player_x)
+                    print(block_x_adjusted_for_east_collision + player_x)
+                    colliding_with_at_least_one_block_east = True
+                    closest_block_east_x = block_x_adjusted_for_east_collision
+                    print("Just activated East Collision")
+                    
             
-
-
-
-
-
-
-
-
-        
-        
-    def _handle_game_over(self, cast):
-        """Shows the 'game over' message and turns the losing cycle white if the game is over.
-        
-        Args:
-            cast (Cast): The cast of Actors in the game.
-        """
-        if self._is_game_over == True:
-            
-            cycles = cast.get_actors("cycles")
-
-            # cycle1 = cycles[0]
-            # cycle2 = cycles[1]
-
-            if self._red_wins == True:
-                player_color = "Red"
-                cycle = cycles[1]
-                
-            # else:
-            #     player_color = "Blue"
-            #     cycle = cycles[0]
-
-            
-            segments = cycle.get_segments()
-
-            x = int(constants.MAX_X / 2)
-            y = int(constants.MAX_Y / 2)
-            position = Point(x, y)
-
-            message = Actor()
-            message.set_text(f"{player_color} wins! Game over.")
-            message.set_position(position)
-            cast.add_actor("messages", message)
-
-            for segment in segments:
-                segment.set_color(constants.WHITE)
-            # food.set_color(constants.WHITE)
+            elif colliding_with_at_least_one_block_east == False:
+                player.set_east_colliding_variable(False)

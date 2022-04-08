@@ -81,10 +81,12 @@ can write it here!
         I rewrote the way collision was being handled in control_actors_action and handle_collisions_action, and it fixed the issue I was having.
         South collision now works.
                 
-0.021: Jared - Back at it again at krispy kreme *kicks sign* https://www.youtube.com/watch?v=ax27VgI-lVE
+0.021: Jared - Back at it again at krispy kreme *kicks sign* https://www.youtube.com/watch?v=ax27VgI-lVE [kek -L]
         I fixed a logic error in how gravity was being applied. It was adding velocity up to MAX_SPEED_SOUTH + 1 rather than just MAX_SPEED_SOUTH.
         I worked on cleaning up the code we're working with a bit, removing old code or stuff that won't be useful in the future.
         I started working on collision for each of the other directions too.
                 I set up the code that we need for each of the other directions in control_actors_action I think.
                 I also set up the code for west in handle_collisions_action, but it seems to be a bit buggy. 
                         I think I have a little bit of logic that's mixed up in all of that, that's allowing it to move past the point it should be stopping at, and then it's being dragged back. I think. :confused:
+
+0.022: L- East collision added, and west is no longer buggy! Mild changes to the level. 

@@ -1,4 +1,4 @@
-from this import d
+
 from game.shared.constants import MAX_SPEED_EAST, MAX_SPEED_NORTH, MAX_SPEED_SOUTH, MAX_SPEED_WEST, CELL_SIZE
 
 from game.scripting.action import Action
@@ -97,7 +97,7 @@ class ControlActorsAction(Action):
 
         # East Collision!
         if collision_east <= MAX_SPEED_EAST and dx >= collision_east and collision_east != False:
-            dx = collision_east + 1
+            dx = collision_east - 1
 
         # North Collision!
         if collision_north <= MAX_SPEED_NORTH and -dy >= collision_north and collision_north != False:
