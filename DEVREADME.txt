@@ -1,0 +1,2 @@
+This is a file for developers to read. The numbers that are added to half of CELL_SIZE in handle_collisions_action, "(8 + CELL_SIZE / 2)" are there so that the collision works better. 
+It's been fine tuned with the current cell size to make sure that it'll get as close to the player as possible without impeding the player.

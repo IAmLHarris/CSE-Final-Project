@@ -49,20 +49,21 @@ TODO:
 So, we need to get the game into a state where it's working nicely and enjoyable to play. 
 This to me means that we need to do these things:
 
-Required: 
-    West collision needs to be fixed.
-    North collision needs to be implemented.
-    East collision needs to be implemented.
 
-    We need to design our first level to be more engaging.
+Required: 
+    West collision needs to be fixed. CHECK, mostly
+    North collision needs to be implemented. CHECK, also mostly
+    East collision needs to be implemented. CHECK
+
+    We need to design our first level to be more engaging. CHECK
 
 Optional, but practically required:
-    We may need to set up a system to change levels, and set up two more levels.
-    Jumping can be a bit buggy when you hold it down. We should fix that.
+    We may need to set up a system to change levels, and set up two more levels. Nah fam
+    Jumping can be a bit buggy when you hold it down. We should fix that. It's aight.
 
 
 Optional:
-    We may want to add more objects like blocks in our levels, such as hazards or rewards.
+    We may want to add more objects like blocks in our levels, such as hazards or rewards. Nah, we spruced it up with colors.
 
 
 

@@ -94,3 +94,9 @@ can write it here!
 0.023: L- Completely unneeded things added, but they were things that were bugging me. You are now able to change the color of the levels in the .txt file. 
 
 1.0: L- Level completed, north collision too. This is what we set out to do, minus the three levels, but we do not have the time for that. This is good enough, or at least, it's going to have to be. 
+
+1.001 Jared - I came on to test and record the video, and I wanted to make a couple small changes.
+        Looks like I'm not going to be able to fix the accidental missing corner collision, nor how the west and north collision is both magnetic and sticky. I just don't know how to at the moment and don't have time to try.
+                We'll call them features. xD
+        I modified a couple values in constants relating to the player's speed.
+        I also made DEVREADME.txt and renamed some folders.
