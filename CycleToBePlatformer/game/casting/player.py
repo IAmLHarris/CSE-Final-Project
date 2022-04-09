@@ -1,6 +1,7 @@
 # from constants import Constants
 # from turtle import pos, position
-from game.shared.constants import FONT_SIZE, WHITE
+
+from game.shared.constants import FONT_SIZE, WHITE, ORANGE
 from game.shared import constants as constants
 from game.casting.actor import Actor
 from game.shared.point import Point
@@ -18,7 +19,7 @@ class Player(Actor):
         super().__init__()
         self.set_text("Q")
         self.set_font_size(FONT_SIZE)
-        self.set_color(WHITE)
+        self.set_color(ORANGE)
         self.grav_counter = 0
         self.prepare_body()
         self.north_colliding_variable = False
@@ -28,8 +29,8 @@ class Player(Actor):
 
 
     def prepare_body(self):
-        x = int(150)
-        y = int(400)
+        x = int(50)
+        y = int(460)
         position = Point(x, y)
         self.set_position(position)
 

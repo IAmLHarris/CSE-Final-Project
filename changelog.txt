@@ -92,3 +92,4 @@ can write it here!
 0.022: L- East collision added, and west is no longer buggy! Mild changes to the level. 
 
 0.023: L- Completely unneeded things added, but they were things that were bugging me. You are now able to change the color of the levels in the .txt file. 
+1.0: L- Level completed, north collision too. This is what we set out to do, minus the three levels, but we do not have the time for that. This is good enough, or at least, it's going to have to be. 

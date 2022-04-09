@@ -16,6 +16,7 @@ RED = Color(255, 0, 0)
 YELLOW = Color(255, 255, 0)
 GREEN = Color(0, 255, 0)
 BLUE = Color(0, 0, 255)
+ORANGE = Color(255, 165, 0)
 GRAY = Color(50, 50, 50)
 
 LEVEL1 = os.path.dirname(os.path.abspath(__file__)) + "/data/level1.txt"

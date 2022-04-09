@@ -59,6 +59,10 @@ def main():
             block_color = constants.BLUE
         elif c =="c_black":
             block_color = Color(0, 0, 0)
+        elif c =="c_white":
+            block_color = Color(255, 255, 255)
+        elif c =="c_red":
+            block_color = constants.RED
         else:
             pass
 
