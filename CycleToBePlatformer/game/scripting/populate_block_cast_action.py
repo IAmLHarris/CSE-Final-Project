@@ -42,7 +42,7 @@ class PopulateBlockCastAction(Action):
             
             
             for block in level_lines:
-                list_count=0
+                
                 
 
                 

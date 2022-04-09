@@ -1,35 +1,154 @@
 # This is a 20 block long floor 
 
-.block 0 30
-.block 1 30
-.block 2 30
-.block 3 30
-.block 4 30
-.block 5 30
-.block 6 30
-.block 7 30
-.block 8 30
-.block 9 30
-.block 10 30
-.block 11 30
-.block 12 30
-.block 13 30
-.block 14 30
-.block 15 30
-.block 16 30
-.block 17 30
-.block 18 30
-.block 19 30
-.block 20 30
+.block 0 0 c_black
+.block 0 1 c_black
+.block 0 2 c_black
+.block 0 3 c_black
+.block 0 4 c_black
+.block 0 5 c_black
+.block 0 6 c_black
+.block 0 7 c_black
+.block 0 8 c_black
+.block 0 9 c_black
+.block 0 10 c_black
+.block 0 11 c_black
+.block 0 12 c_black
+.block 0 13 c_black
+.block 0 14 c_black
+.block 0 15 c_black
+.block 0 16 c_black
+.block 0 17 c_black
+.block 0 18 c_black
+.block 0 19 c_black
 
 
 
-.block 11 29
-.block 12 29
-.block 13 29
+.block 0 63 c_gray
+.block 1 63 c_gray
+.block 2 63 c_gray
+.block 3 63 c_gray
+.block 4 63 c_gray
+.block 5 63 c_gray
+.block 6 63 c_gray
+.block 7 63 c_gray
+.block 8 63 c_gray
+.block 9 63 c_gray
+.block 10 63 c_gray
+.block 11 63 c_gray
+.block 12 63 c_gray
+.block 13 63 c_gray
+.block 14 63 c_gray
+.block 15 63 c_gray
+.block 16 63 c_gray
+.block 17 63 c_gray
+.block 18 63 c_gray
+.block 19 63 c_gray
+.block 20 63 c_gray
+.block 21 63 c_gray
+.block 22 63 c_gray
+.block 23 63 c_gray
+.block 24 63 c_gray
+.block 25 63 c_gray
+.block 26 63 c_gray
+.block 27 63 c_gray
+.block 28 63 c_gray
+.block 29 63 c_gray
+.block 30 63 c_gray
+.block 31 63 c_gray
+.block 32 63 c_gray
+.block 33 63 c_gray
+.block 34 63 c_gray
+.block 35 63 c_gray
+.block 36 63 c_gray
+.block 37 63 c_gray
+.block 38 63 c_gray
+.block 39 63 c_gray
+.block 40 63 c_gray
+.block 41 63 c_gray
+.block 42 63 c_gray
+.block 43 63 c_gray
+.block 44 63 c_gray
+.block 45 63 c_gray
+.block 46 63 c_gray
+.block 47 63 c_gray
+.block 48 63 c_gray
+.block 49 63 c_gray
+.block 50 63 c_gray
+.block 51 63 c_gray
+.block 52 63 c_gray
+.block 53 63 c_gray
+.block 54 63 c_gray
+.block 55 63 c_gray
+.block 56 63 c_gray
+.block 57 63 c_gray
+.block 58 63 c_gray
+.block 59 63 c_gray
+.block 60 63 c_gray
+.block 61 63 c_gray
+.block 62 63 c_gray
+.block 63 63 c_gray
 
-
-
-.block 11 28
-.block 12 28
-.block 13 28
+.block 0 0 c_blue
+.block 1 0 c_blue
+.block 2 0 c_blue
+.block 3 0 c_blue
+.block 4 0 c_blue
+.block 5 0 c_blue
+.block 6 0 c_blue
+.block 7 0 c_blue
+.block 8 0 c_blue
+.block 9 0 c_blue
+.block 10 0 c_blue
+.block 11 0 c_blue
+.block 12 0 c_blue
+.block 13 0 c_blue
+.block 14 0 c_blue
+.block 15 0 c_blue
+.block 16 0 c_blue
+.block 17 0 c_blue
+.block 18 0 c_blue
+.block 19 0 c_blue
+.block 20 0 c_blue
+.block 21 0 c_blue
+.block 22 0 c_blue
+.block 23 0 c_blue
+.block 24 0 c_blue
+.block 25 0 c_blue
+.block 26 0 c_blue
+.block 27 0 c_blue
+.block 28 0 c_blue
+.block 29 0 c_blue
+.block 30 0 c_blue
+.block 31 0 c_blue
+.block 32 0 c_blue
+.block 33 0 c_blue
+.block 34 0 c_blue
+.block 35 0 c_blue
+.block 36 0 c_blue
+.block 37 0 c_blue
+.block 38 0 c_blue
+.block 39 0 c_blue
+.block 40 0 c_blue
+.block 41 0 c_blue
+.block 42 0 c_blue
+.block 43 0 c_blue
+.block 44 0 c_blue
+.block 45 0 c_blue
+.block 46 0 c_blue
+.block 47 0 c_blue
+.block 48 0 c_blue
+.block 49 0 c_blue
+.block 50 0 c_blue
+.block 51 0 c_blue
+.block 52 0 c_blue
+.block 53 0 c_blue
+.block 54 0 c_blue
+.block 55 0 c_blue
+.block 56 0 c_blue
+.block 57 0 c_blue
+.block 58 0 c_blue
+.block 59 0 c_blue
+.block 60 0 c_blue
+.block 61 0 c_blue
+.block 62 0 c_blue
+.block 63 0 c_blue

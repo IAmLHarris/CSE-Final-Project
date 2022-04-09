@@ -28,8 +28,8 @@ class Player(Actor):
 
 
     def prepare_body(self):
-        x = int(constants.MAX_X / 2)
-        y = int(constants.MAX_Y / 2)
+        x = int(150)
+        y = int(400)
         position = Point(x, y)
         self.set_position(position)
 

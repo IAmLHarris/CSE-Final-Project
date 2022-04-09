@@ -90,3 +90,5 @@ can write it here!
                         I think I have a little bit of logic that's mixed up in all of that, that's allowing it to move past the point it should be stopping at, and then it's being dragged back. I think. :confused:
 
 0.022: L- East collision added, and west is no longer buggy! Mild changes to the level. 
+
+0.023: L- Completely unneeded things added, but they were things that were bugging me. You are now able to change the color of the levels in the .txt file. 

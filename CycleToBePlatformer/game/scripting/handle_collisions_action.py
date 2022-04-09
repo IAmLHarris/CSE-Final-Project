@@ -96,7 +96,7 @@ class HandleCollisionsAction(Action):
                     player.set_west_colliding_variable(block_x_adjusted_for_west_collision - player_x)
                     colliding_with_at_least_one_block_west = True
                     closest_block_west_x = block_x_adjusted_for_west_collision
-                    print("Just activated West Collision")
+                    
             
             elif colliding_with_at_least_one_block_west == False:
                 player.set_west_colliding_variable(False)
@@ -106,12 +106,12 @@ class HandleCollisionsAction(Action):
             block_x_adjusted_for_east_collision = block_x - CELL_SIZE
             if ((block_x_adjusted_for_east_collision - player_x >= 0) and (block_x_adjusted_for_east_collision - player_x <= MAX_SPEED_EAST))    and    ((player_y <= block_y + (CELL_SIZE / 2)) and (player_y >= block_y - (CELL_SIZE / 2))):
                 if closest_block_east_x == False or closest_block_east_x < block_x_adjusted_for_east_collision:
-                    print(block_x_adjusted_for_east_collision + player_x)
+                    
                     player.set_east_colliding_variable(block_x_adjusted_for_east_collision - player_x)
-                    print(block_x_adjusted_for_east_collision + player_x)
+                    
                     colliding_with_at_least_one_block_east = True
                     closest_block_east_x = block_x_adjusted_for_east_collision
-                    print("Just activated East Collision")
+                    
                     
             
             elif colliding_with_at_least_one_block_east == False:

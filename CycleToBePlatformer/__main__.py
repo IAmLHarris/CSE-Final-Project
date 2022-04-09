@@ -1,3 +1,4 @@
+
 from game.shared import constants as constants
 # from game.shared.constants import constants as Constants
 
@@ -36,13 +37,33 @@ def main():
     
     # block.set_position(Point(100, 100))
     player.prepare_body()
+
+
+
+    # level1_populated_blocks = PopulateBlockCastAction(constants.LEVEL1)
+    # level2_populated_blocks = PopulateBlockCastAction(constants.LEVEL2)
+    # level3_populated_blocks = PopulateBlockCastAction(constants.LEVEL3)
     
-    populated_blocks = PopulateBlockCastAction(constants.LEVEL1)
+    populated_blocks = PopulateBlockCastAction(constants.LEVEL2)
     populated_blocks.get_populated_block_cast()
     for split_block in populated_blocks.get_populated_block_cast():
         x = int(split_block[1]) * CELL_SIZE
         y = int(split_block[2]) * CELL_SIZE
-        new_block = Block(x,y)
+        c = split_block[3]
+
+        if c == "c_green":
+            block_color = constants.GREEN
+        elif c =="c_gray":
+            block_color = constants.GRAY
+        elif c =="c_blue":
+            block_color = constants.BLUE
+        elif c =="c_black":
+            block_color = Color(0, 0, 0)
+        else:
+            pass
+
+        
+        new_block = Block(x,y, block_color)
         cast.add_actor("blocks", new_block)
 
         # Testing line V
