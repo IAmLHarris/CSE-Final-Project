@@ -89,6 +89,18 @@ class HandleCollisionsAction(Action):
             elif colliding_with_at_least_one_block_south == False:
                 player.set_south_colliding_variable(False)
 
+            # North collision. Written in version 0.023.
+            block_y_adjusted_for_north_collision = block_y + CELL_SIZE
+            if ((player_y - block_y_adjusted_for_north_collision >= 0) and (player_y - block_y_adjusted_for_north_collision <= MAX_SPEED_NORTH))    and    ((player_x <= block_x + (CELL_SIZE / 2)) and (player_x >= block_x - (CELL_SIZE / 2))):
+                if closest_block_north_y == False or closest_block_north_y < block_y_adjusted_for_north_collision:
+                    player.set_north_colliding_variable(block_y_adjusted_for_north_collision - player_y)
+                    colliding_with_at_least_one_block_north = True
+                    closest_block_north_y = block_y_adjusted_for_north_collision
+                    
+            
+            elif colliding_with_at_least_one_block_north == False:
+                player.set_north_colliding_variable(False)
+
             # West Collision! Written in version 0.021 based off of south collision.
             block_x_adjusted_for_west_collision = block_x + CELL_SIZE
             if ((player_x - block_x_adjusted_for_west_collision >= 0) and (player_x - block_x_adjusted_for_west_collision <= MAX_SPEED_WEST))    and    ((player_y <= block_y + (CELL_SIZE / 2)) and (player_y >= block_y - (CELL_SIZE / 2))):
@@ -116,3 +128,5 @@ class HandleCollisionsAction(Action):
             
             elif colliding_with_at_least_one_block_east == False:
                 player.set_east_colliding_variable(False)
+
+            
